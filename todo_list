@@ -1,4 +1,4 @@
 TODO:
-- [ ] Update README heading
-- [ ] Configure git remote to GitHub repo
-- [ ] Commit README change and push to GitHub
+- [x] Update README heading
+- [x] Configure git remote to GitHub repo
+- [x] Commit README change and push to GitHub
