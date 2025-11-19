@@ -1,12 +1,15 @@
 /** @type {import('postcss-load-config').Config} */
-import tailwindcss from "@tailwindcss/postcss";
-import autoprefixer from "autoprefixer";
+// Force the LightningCSS wasm transformer to avoid native binary resolution
+// problems (works in CI and Vercel). Use dynamic imports so we can set the
+// env var before the plugin code loads.
+process.env.CSS_TRANSFORMER_WASM = process.env.CSS_TRANSFORMER_WASM ?? "1";
 
-// Use the @tailwindcss/postcss plugin. Disable Lightning CSS optimizations to
-// avoid native binary resolution failures in some CI/build environments (Vercel).
+const tailwindcss = (await import("tailwindcss")).default;
+const autoprefixer = (await import("autoprefixer")).default;
+
 export default {
   plugins: [
-    tailwindcss({ optimize: false }),
+    tailwindcss(),
     autoprefixer(),
   ],
 };
