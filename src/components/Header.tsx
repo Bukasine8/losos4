@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Logo } from "@/components/ui/logo";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
     DropdownMenu,
@@ -34,6 +34,69 @@ const navLinks = [
     { name: "Contact", href: "/contact" },
 ];
 
+function MobileNavLink({
+    link,
+    pathname,
+}: {
+    link: (typeof navLinks)[0];
+    pathname: string;
+}) {
+    const [isOpen, setIsOpen] = React.useState(false);
+
+    if (link.children) {
+        return (
+            <div className="flex flex-col gap-2">
+                <button
+                    onClick={() => setIsOpen(!isOpen)}
+                    className="flex items-center justify-between w-full text-lg font-semibold text-left"
+                >
+                    <span className="gradient-text">{link.name}</span>
+                    <ChevronDown
+                        className={cn(
+                            "h-5 w-5 transition-transform",
+                            isOpen ? "rotate-180" : ""
+                        )}
+                    />
+                </button>
+                <AnimatePresence>
+                    {isOpen && (
+                        <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: "auto", opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            className="overflow-hidden pl-4 flex flex-col gap-2 border-l-2 border-primary/30"
+                        >
+                            {link.children.map((child) => (
+                                <Link
+                                    key={child.name}
+                                    href={child.href}
+                                    className="text-muted-foreground hover:text-primary transition-colors py-1 text-base"
+                                >
+                                    {child.name}
+                                </Link>
+                            ))}
+                        </motion.div>
+                    )}
+                </AnimatePresence>
+            </div>
+        );
+    }
+
+    return (
+        <Link
+            href={link.href}
+            className={cn(
+                "text-lg font-medium hover:text-primary transition-colors py-1",
+                pathname === link.href
+                    ? "text-primary gradient-text"
+                    : "text-foreground/80"
+            )}
+        >
+            {link.name}
+        </Link>
+    );
+}
+
 export function Header() {
     const [isScrolled, setIsScrolled] = React.useState(false);
     const pathname = usePathname();
@@ -60,15 +123,17 @@ export function Header() {
         >
             <div className="container flex items-center justify-between">
                 {/* Logo with Gradient Animation */}
-                <motion.div
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ type: "spring", stiffness: 400 }}
-                >
-                    <Logo className="relative z-10" />
-                </motion.div>
+                <Link href="/" aria-label="Go to Homepage">
+                    <motion.div
+                        whileHover={{ scale: 1.05 }}
+                        transition={{ type: "spring", stiffness: 400 }}
+                    >
+                        <Logo className="relative z-10 h-8 w-auto" />
+                    </motion.div>
+                </Link>
 
                 {/* Desktop Navigation */}
-                <nav className="hidden md:flex items-center space-x-1">
+                <nav className="hidden lg:flex items-center space-x-1">
                     {navLinks.map((link, index) => {
                         if (link.children) {
                             return (
@@ -145,7 +210,7 @@ export function Header() {
 
                 {/* CTA Button */}
                 <motion.div
-                    className="hidden md:flex items-center gap-4"
+                    className="hidden lg:flex items-center gap-4"
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.5 }}
@@ -173,66 +238,39 @@ export function Header() {
                 </motion.div>
 
                 {/* Mobile Menu */}
-                <Sheet>
-                    <SheetTrigger asChild>
-                        <Button
-                            variant="ghost"
-                            size="icon"
-                            className="md:hidden glass rounded-lg"
-                            aria-label="Open Menu"
-                        >
-                            <Menu className="h-6 w-6" />
-                        </Button>
-                    </SheetTrigger>
-                    <SheetContent side="right" className="glass-strong border-l border-white/10 w-[300px] sm:w-[400px]">
-                        <div className="flex flex-col gap-6 mt-6">
-                            <Logo />
-                            <nav className="flex flex-col gap-4">
-                                {navLinks.map((link) => (
-                                    <div key={link.name} className="flex flex-col gap-2">
-                                        {link.children ? (
-                                            <div className="flex flex-col gap-2">
-                                                <span className="font-semibold text-lg gradient-text">
-                                                    {link.name}
-                                                </span>
-                                                <div className="pl-4 flex flex-col gap-2 border-l-2 border-primary/30">
-                                                    {link.children.map((child) => (
-                                                        <Link
-                                                            key={child.name}
-                                                            href={child.href}
-                                                            className="text-muted-foreground hover:text-primary transition-colors py-1"
-                                                        >
-                                                            {child.name}
-                                                        </Link>
-                                                    ))}
-                                                </div>
-                                            </div>
-                                        ) : (
-                                            <Link
-                                                href={link.href}
-                                                className={cn(
-                                                    "text-lg font-medium hover:text-primary transition-colors py-1",
-                                                    pathname === link.href
-                                                        ? "text-primary gradient-text"
-                                                        : "text-foreground/80"
-                                                )}
-                                            >
-                                                {link.name}
-                                            </Link>
-                                        )}
-                                    </div>
-                                ))}
-                            </nav>
-                            <div className="mt-auto">
-                                <Link href="/contact" className="block">
-                                    <button className="w-full px-6 py-3 rounded-full font-semibold bg-gradient-to-r from-primary to-secondary text-white shadow-lg hover:shadow-xl transition-shadow">
-                                        Get a Quote
-                                    </button>
-                                </Link>
+                <div className="lg:hidden">
+                    <Sheet>
+                        <SheetTrigger asChild>
+                            <Button
+                                variant="ghost"
+                                size="icon"
+                                className="glass rounded-lg"
+                                aria-label="Open Menu"
+                            >
+                                <Menu className="h-6 w-6" />
+                            </Button>
+                        </SheetTrigger>
+                        <SheetContent side="right" className="glass-strong border-l border-white/10 w-[300px] sm:w-[350px]">
+                            <div className="flex flex-col h-full">
+                                <div className="p-6">
+                                    <Logo />
+                                </div>
+                                <nav className="flex-1 flex flex-col gap-4 px-6">
+                                    {navLinks.map((link) => (
+                                        <MobileNavLink key={link.name} link={link} pathname={pathname} />
+                                    ))}
+                                </nav>
+                                <div className="p-6 mt-auto">
+                                    <Link href="/contact" className="block">
+                                        <button className="w-full px-6 py-3 rounded-full font-semibold bg-gradient-to-r from-primary to-secondary text-white shadow-lg hover:shadow-xl transition-shadow">
+                                            Get a Quote
+                                        </button>
+                                    </Link>
+                                </div>
                             </div>
-                        </div>
-                    </SheetContent>
-                </Sheet>
+                        </SheetContent>
+                    </Sheet>
+                </div>
             </div>
         </motion.header>
     );

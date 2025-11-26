@@ -1,8 +1,7 @@
 "use client";
 
-import { useState } from "react";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
-import { FileCheck, Maximize2 } from "lucide-react";
+import { Maximize2 } from "lucide-react";
 
 const certifications = [
     {
