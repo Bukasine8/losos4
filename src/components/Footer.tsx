@@ -10,9 +10,9 @@ export function Footer() {
     return (
         <footer className="bg-muted/50 border-t">
             <div className="container py-12 md:py-16">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
                     {/* Column 1: Brand & Quick Nav */}
-                    <div className="space-y-6">
+                    <div className="space-y-6 sm:col-span-2 lg:col-span-1">
                         <Logo />
                         <p className="text-sm text-muted-foreground leading-relaxed">
                             Professional engineering consultancy delivering innovative mechanical, electrical, and fire safety solutions for modern infrastructure.

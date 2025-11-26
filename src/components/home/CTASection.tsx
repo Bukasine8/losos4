@@ -89,7 +89,7 @@ export function CTASection() {
                     >
                         <Sparkles className="w-4 h-4 text-accent animate-pulse" />
                         <span className="text-sm font-medium gradient-text-accent">
-                            Let's Build Something Amazing
+                            Let&apos;s Build Something Amazing
                         </span>
                     </motion.div>
 
@@ -99,7 +99,7 @@ export function CTASection() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.2 }}
-                        className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 font-display"
+                        className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 font-display"
                     >
                         Ready to Start Your{" "}
                         <span className="gradient-text-cyber">Project?</span>
@@ -111,7 +111,7 @@ export function CTASection() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.3 }}
-                        className="text-xl text-foreground/70 mb-12 max-w-2xl mx-auto leading-relaxed"
+                        className="text-lg sm:text-xl text-foreground/70 mb-10 sm:mb-12 max-w-2xl mx-auto leading-relaxed"
                     >
                         Partner with us for world-class engineering solutions tailored to your
                         specific needs. Transform your vision into reality.

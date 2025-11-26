@@ -9,7 +9,7 @@ export function CertificationsSection() {
         <section className="relative py-24 bg-muted/40">
             <div className="container">
                 <div className="flex flex-col md:flex-row items-end justify-between gap-6 mb-12">
-                    <div className="max-w-2xl">
+                    <div className="max-w-2xl text-center md:text-left">
                         <motion.div
                             initial={{ opacity: 0, y: 10 }}
                             whileInView={{ opacity: 1, y: 0 }}
@@ -40,7 +40,7 @@ export function CertificationsSection() {
                             regulatory standards.
                         </motion.p>
                     </div>
-                    <Link href="/certifications" className="shrink-0">
+                    <Link href="/certifications" className="shrink-0 self-center md:self-end">
                         <motion.button
                             initial={{ opacity: 0, y: 10 }}
                             whileInView={{ opacity: 1, y: 0 }}
