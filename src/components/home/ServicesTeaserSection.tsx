@@ -77,7 +77,7 @@ export function ServicesTeaserSection() {
                     </Link>
                 </motion.div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                     {services.map((service, index) => (
                         <motion.div
                             key={index}
@@ -88,7 +88,7 @@ export function ServicesTeaserSection() {
                         >
                             <Link href={service.href}>
                                 <GlassCard
-                                    className="group relative overflow-hidden h-full border border-white/10 hover:border-primary/50 transition-all duration-500"
+                                    className="group relative overflow-hidden h-full border border-white/10 hover:border-primary/50 transition-all duration-500 p-6"
                                     hover={false}
                                 >
                                     {/* Gradient overlay on hover */}

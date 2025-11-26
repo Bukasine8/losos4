@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import { EncryptedText } from "@/components/ui/EncryptedText";
 import { TypewriterEffect } from "@/components/ui/typewriter-effect";
 import { ParticleField } from "@/components/ui/ParticleField";
-import { AnimatedText } from "@/components/ui/AnimatedText";
 import { KineticButton } from "@/components/ui/KineticButton";
 import { ArrowRight, Sparkles } from "lucide-react";
 import Link from "next/link";
@@ -29,7 +28,7 @@ export function HeroSection() {
             </div>
 
             {/* Animated Gradient Orbs */}
-            <div className="absolute inset-0 overflow-hidden">
+            <div className="absolute inset-0 overflow-hidden hidden md:block">
                 <motion.div
                     className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/30 rounded-full blur-3xl"
                     animate={{
@@ -57,7 +56,7 @@ export function HeroSection() {
             </div>
 
             {/* Floating 3D Elements */}
-            <div className="absolute inset-0 pointer-events-none">
+            <div className="absolute inset-0 pointer-events-none hidden md:block">
                 {[...Array(6)].map((_, i) => (
                     <motion.div
                         key={i}
@@ -97,7 +96,7 @@ export function HeroSection() {
                     </motion.div>
 
                     {/* Main Heading with Encrypted Text */}
-                    <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-8 font-display leading-tight">
+                    <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-6 md:mb-8 font-display leading-tight">
                         <EncryptedText
                             text="Losos4 Engineering"
                             className="gradient-text block"
@@ -106,10 +105,10 @@ export function HeroSection() {
                     </h1>
 
                     {/* Subtitle with Typewriter Effect */}
-                    <div className="mb-12">
+                    <div className="mb-8 md:mb-12">
                         <TypewriterEffect
                             words={subtitleWords}
-                            className="text-xl md:text-2xl justify-center"
+                            className="text-lg sm:text-xl md:text-2xl justify-center"
                         />
                     </div>
 
@@ -142,7 +141,7 @@ export function HeroSection() {
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 3.5 }}
-                        className="mt-20 grid grid-cols-3 gap-8 max-w-3xl mx-auto"
+                        className="mt-16 md:mt-20 grid grid-cols-1 sm:grid-cols-3 gap-y-8 sm:gap-8 max-w-3xl mx-auto"
                     >
                         {[
                             { number: "500+", label: "Projects" },
@@ -150,7 +149,7 @@ export function HeroSection() {
                             { number: "98%", label: "Satisfaction" },
                         ].map((stat, index) => (
                             <div key={index} className="text-center">
-                                <div className="text-3xl md:text-4xl font-bold gradient-text mb-2">
+                                <div className="text-2xl sm:text-3xl md:text-4xl font-bold gradient-text mb-2">
                                     {stat.number}
                                 </div>
                                 <div className="text-sm text-foreground/60">{stat.label}</div>
@@ -163,7 +162,7 @@ export function HeroSection() {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 4 }}
-                        className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
+                        className="absolute bottom-4 sm:bottom-10 left-1/2 transform -translate-x-1/2"
                     >
                         <motion.div
                             animate={{ y: [0, 10, 0] }}

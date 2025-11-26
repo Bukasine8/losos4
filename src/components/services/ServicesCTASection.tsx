@@ -7,7 +7,7 @@ export function ServicesCTASection() {
             <div className="container text-center">
                 <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to discuss your project?</h2>
                 <p className="text-xl text-primary-foreground/80 mb-10 max-w-2xl mx-auto">
-                    Let's work together to build safe, efficient, and compliant infrastructure.
+                    Let&apos;s work together to build safe, efficient, and compliant infrastructure.
                 </p>
                 <Button
                     asChild

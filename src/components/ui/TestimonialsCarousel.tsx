@@ -163,40 +163,40 @@ export function TestimonialsCarousel() {
                         >
                             <GlassCard className="p-8 md:p-12 relative">
                                 {/* Quote Icon */}
-                                <div className="absolute top-8 left-8 opacity-20">
-                                    <Quote className="w-16 h-16 text-primary" />
+                                <div className="absolute top-4 left-4 sm:top-8 sm:left-8 opacity-10 sm:opacity-20">
+                                    <Quote className="w-12 h-12 sm:w-16 sm:h-16 text-primary" />
                                 </div>
 
                                 <div className="relative z-10">
                                     {/* Stars */}
-                                    <div className="flex gap-1 mb-6 justify-center">
+                                    <div className="flex gap-1 mb-4 sm:mb-6 justify-center">
                                         {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
                                             <Star
                                                 key={i}
-                                                className="w-5 h-5 fill-accent text-accent"
+                                                className="w-4 h-4 sm:w-5 sm:h-5 fill-accent text-accent"
                                             />
                                         ))}
                                     </div>
 
                                     {/* Content */}
-                                    <p className="text-xl md:text-2xl text-center mb-8 leading-relaxed">
-                                        "{testimonials[currentIndex].content}"
+                                    <p className="text-base sm:text-xl md:text-2xl text-center mb-6 sm:mb-8 leading-relaxed">
+                                        &quot;{testimonials[currentIndex].content}&quot;
                                     </p>
 
                                     {/* Author */}
-                                    <div className="flex items-center justify-center gap-4">
-                                        <div className="w-16 h-16 rounded-full overflow-hidden ring-2 ring-primary/30">
+                                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                                        <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full overflow-hidden ring-2 ring-primary/30">
                                             <img
                                                 src={testimonials[currentIndex].image}
                                                 alt={testimonials[currentIndex].name}
                                                 className="w-full h-full object-cover"
                                             />
                                         </div>
-                                        <div className="text-left">
-                                            <p className="font-semibold text-lg gradient-text">
+                                        <div className="text-center sm:text-left">
+                                            <p className="font-semibold text-base sm:text-lg gradient-text">
                                                 {testimonials[currentIndex].name}
                                             </p>
-                                            <p className="text-sm text-foreground/60">
+                                            <p className="text-xs sm:text-sm text-foreground/60">
                                                 {testimonials[currentIndex].role}
                                             </p>
                                         </div>

@@ -67,7 +67,7 @@ export function ProjectsTeaserSection() {
                 </motion.div>
 
                 {/* Uniform Grid Layout - All cards same size */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     {projects.map((project, index) => (
                         <motion.div
                             key={index}
@@ -78,7 +78,7 @@ export function ProjectsTeaserSection() {
                         >
                             <Link href={project.href}>
                                 <motion.div
-                                    className="group relative overflow-hidden rounded-2xl aspect-[4/3] transform-3d"
+                                    className="group relative overflow-hidden rounded-2xl aspect-square sm:aspect-[4/3] transform-3d"
                                     whileHover={{ scale: 1.02 }}
                                     transition={{ duration: 0.3 }}
                                 >
@@ -97,7 +97,7 @@ export function ProjectsTeaserSection() {
                                     <div className="absolute inset-0 glass opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
                                     {/* Content */}
-                                    <div className="absolute inset-0 p-8 flex flex-col justify-end">
+                                    <div className="absolute inset-0 p-6 md:p-8 flex flex-col justify-end">
                                         <motion.div
                                             initial={{ y: 20, opacity: 0 }}
                                             whileInView={{ y: 0, opacity: 1 }}
@@ -109,7 +109,7 @@ export function ProjectsTeaserSection() {
                                                     {project.category}
                                                 </span>
                                             </div>
-                                            <h3 className="text-2xl md:text-3xl font-bold mb-4 group-hover:gradient-text transition-all duration-300">
+                                            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 group-hover:gradient-text transition-all duration-300">
                                                 {project.title}
                                             </h3>
                                             <div className="flex items-center gap-2 text-sm font-medium gradient-text opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0">
