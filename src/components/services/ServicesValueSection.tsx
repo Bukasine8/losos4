@@ -1,4 +1,5 @@
 import { CheckCircle2, Award, Users, Scale } from "lucide-react";
+import { TypewriterEffect } from "@/components/ui/typewriter-effect";
 
 const values = [
     {
@@ -28,7 +29,16 @@ export function ServicesValueSection() {
         <section className="py-20 bg-muted/30">
             <div className="container">
                 <div className="text-center max-w-3xl mx-auto mb-16">
-                    <h2 className="text-3xl font-bold mb-4">Why Choose Losos4?</h2>
+                    <div className="mb-4">
+                        <TypewriterEffect
+                            words={[
+                                { text: "Why" },
+                                { text: "Choose" },
+                                { text: "Losos4?", className: "text-primary" },
+                            ]}
+                            className="text-3xl font-bold justify-center"
+                        />
+                    </div>
                     <p className="text-muted-foreground text-lg">
                         We combine technical excellence with a client-first approach to deliver superior engineering outcomes.
                     </p>

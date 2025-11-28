@@ -19,11 +19,22 @@ const awards = [
     },
 ];
 
+import { TypewriterEffect } from "@/components/ui/typewriter-effect";
+
 export function AwardsSection() {
     return (
         <section className="py-20 bg-background">
             <div className="container">
-                <h2 className="text-3xl font-bold text-center mb-12">Awards & Recognitions</h2>
+                <div className="mb-12">
+                    <TypewriterEffect
+                        words={[
+                            { text: "Awards" },
+                            { text: "&" },
+                            { text: "Recognitions", className: "text-primary" },
+                        ]}
+                        className="text-3xl font-bold justify-center"
+                    />
+                </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {awards.map((award, index) => (

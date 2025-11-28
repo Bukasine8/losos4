@@ -1,5 +1,6 @@
 import { Linkedin } from "lucide-react";
 import Link from "next/link";
+import { TypewriterEffect } from "@/components/ui/typewriter-effect";
 
 const team = [
     {
@@ -30,7 +31,16 @@ export function TeamSection() {
         <section className="py-20 bg-muted/30">
             <div className="container">
                 <div className="text-center mb-16">
-                    <h2 className="text-3xl font-bold mb-4">Meet Our Experts</h2>
+                    <div className="mb-4">
+                        <TypewriterEffect
+                            words={[
+                                { text: "Meet" },
+                                { text: "Our" },
+                                { text: "Experts", className: "text-primary" },
+                            ]}
+                            className="text-3xl font-bold justify-center"
+                        />
+                    </div>
                     <p className="text-muted-foreground max-w-2xl mx-auto">
                         Our team of dedicated professionals brings decades of combined experience to every project.
                     </p>

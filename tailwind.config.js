@@ -101,6 +101,11 @@ module.exports = {
           "0%": { opacity: "0" },
           "100%": { opacity: "1" },
         },
+        "scroll": {
+          to: {
+            transform: "translate(calc(-50% - 0.5rem))",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -113,6 +118,7 @@ module.exports = {
         "slide-up": "slide-up 0.6s ease-out forwards",
         "slide-down": "slide-down 0.6s ease-out forwards",
         "fade-in": "fade-in 0.5s ease-out forwards",
+        "scroll": "scroll 40s linear infinite",
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

@@ -1,4 +1,5 @@
 import { BadgeCheck, Award, FileCheck } from "lucide-react";
+import { TypewriterEffect } from "@/components/ui/typewriter-effect";
 
 const certifications = [
     {
@@ -32,7 +33,17 @@ export function AboutCertificationsSection() {
         <section className="py-20 bg-muted/30">
             <div className="container">
                 <div className="text-center mb-12">
-                    <h2 className="text-3xl font-bold mb-4">Our Certifications & Registrations</h2>
+                    <div className="mb-4">
+                        <TypewriterEffect
+                            words={[
+                                { text: "Our" },
+                                { text: "Certifications" },
+                                { text: "&" },
+                                { text: "Registrations", className: "text-primary" },
+                            ]}
+                            className="text-3xl font-bold justify-center"
+                        />
+                    </div>
                     <p className="text-muted-foreground max-w-2xl mx-auto">
                         We operate with full regulatory compliance and maintain the highest professional standards.
                     </p>

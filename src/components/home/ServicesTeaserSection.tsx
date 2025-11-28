@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Zap, Settings, Flame, ClipboardList } from "lucide-react";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { FuturisticBackground } from "@/components/ui/FuturisticBackground";
+import { TypewriterEffect } from "@/components/ui/typewriter-effect";
 
 const services = [
     {
@@ -59,9 +60,16 @@ export function ServicesTeaserSection() {
                         >
                             <span className="text-sm font-medium gradient-text">What We Offer</span>
                         </motion.div>
-                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 font-display">
-                            Our Core <span className="gradient-text">Services</span>
-                        </h2>
+                        <div className="mb-4">
+                            <TypewriterEffect
+                                words={[
+                                    { text: "Our" },
+                                    { text: "Core" },
+                                    { text: "Services", className: "gradient-text" },
+                                ]}
+                                className="text-4xl md:text-5xl lg:text-6xl font-bold font-display"
+                            />
+                        </div>
                         <p className="text-lg text-foreground/70 max-w-2xl">
                             Delivering specialized engineering solutions across multiple disciplines.
                         </p>

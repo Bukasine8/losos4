@@ -4,6 +4,7 @@ import {
     AccordionItem,
     AccordionTrigger,
 } from "@/components/ui/accordion";
+import { TypewriterEffect } from "@/components/ui/typewriter-effect";
 
 const faqs = [
     {
@@ -32,7 +33,16 @@ export function ServicesFAQSection() {
     return (
         <section className="py-20 bg-background">
             <div className="container max-w-3xl">
-                <h2 className="text-3xl font-bold text-center mb-12">Frequently Asked Questions</h2>
+                <div className="mb-12">
+                    <TypewriterEffect
+                        words={[
+                            { text: "Frequently" },
+                            { text: "Asked" },
+                            { text: "Questions" },
+                        ]}
+                        className="text-3xl font-bold justify-center"
+                    />
+                </div>
                 <Accordion type="single" collapsible className="w-full">
                     {faqs.map((faq, index) => (
                         <AccordionItem key={index} value={`item-${index}`}>

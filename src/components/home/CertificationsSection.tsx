@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { CertificationsGridSection } from "@/components/certifications/CertificationsGridSection";
+import { TypewriterEffect } from "@/components/ui/typewriter-effect";
 
 export function CertificationsSection() {
     return (
@@ -19,15 +20,22 @@ export function CertificationsSection() {
                         >
                             Trusted and certified
                         </motion.div>
-                        <motion.h2
+                        <motion.div
                             initial={{ opacity: 0, y: 16 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.45, delay: 0.05 }}
-                            className="text-3xl md:text-4xl lg:text-5xl font-bold font-display mt-4 mb-3"
+                            className="mt-4 mb-3"
                         >
-                            Proven engineering credentials
-                        </motion.h2>
+                            <TypewriterEffect
+                                words={[
+                                    { text: "Proven" },
+                                    { text: "engineering" },
+                                    { text: "credentials", className: "gradient-text" },
+                                ]}
+                                className="text-3xl md:text-4xl lg:text-5xl font-bold font-display"
+                            />
+                        </motion.div>
                         <motion.p
                             initial={{ opacity: 0, y: 16 }}
                             whileInView={{ opacity: 1, y: 0 }}

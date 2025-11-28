@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { FuturisticBackground } from "@/components/ui/FuturisticBackground";
+import { TypewriterEffect } from "@/components/ui/typewriter-effect";
 
 const valueProps = [
     {
@@ -47,15 +48,23 @@ export function ValuePropsSection() {
                         </span>
                     </motion.div>
 
-                    <motion.h2
+                    <motion.div
                         initial={{ opacity: 0, y: 16 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.45, delay: 0.05 }}
-                        className="text-4xl md:text-5xl font-bold font-display mb-4"
+                        className="mb-4"
                     >
-                        Engineering with <span className="gradient-text">measurable impact</span>
-                    </motion.h2>
+                        <TypewriterEffect
+                            words={[
+                                { text: "Engineering" },
+                                { text: "with" },
+                                { text: "measurable", className: "gradient-text" },
+                                { text: "impact", className: "gradient-text" },
+                            ]}
+                            className="text-4xl md:text-5xl font-bold font-display justify-center"
+                        />
+                    </motion.div>
 
                     <motion.p
                         initial={{ opacity: 0, y: 16 }}
@@ -64,7 +73,7 @@ export function ValuePropsSection() {
                         transition={{ duration: 0.45, delay: 0.1 }}
                         className="text-lg text-foreground/70"
                     >
-                        Every project is engineered for long‑term performance, safety, and maintainability 
+                        Every project is engineered for long‑term performance, safety, and maintainability
                          whether it&apos;s a new build, retrofit, or complex infrastructure upgrade.
                     </motion.p>
                 </div>

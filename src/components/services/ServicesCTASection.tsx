@@ -1,11 +1,24 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { TypewriterEffect } from "@/components/ui/typewriter-effect";
 
 export function ServicesCTASection() {
     return (
         <section className="py-20 bg-primary text-primary-foreground">
             <div className="container text-center">
-                <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to discuss your project?</h2>
+                <div className="mb-6">
+                    <TypewriterEffect
+                        words={[
+                            { text: "Ready" },
+                            { text: "to" },
+                            { text: "discuss" },
+                            { text: "your" },
+                            { text: "project?", className: "text-white" },
+                        ]}
+                        className="text-3xl md:text-4xl font-bold justify-center text-white"
+                        cursorClassName="bg-white"
+                    />
+                </div>
                 <p className="text-xl text-primary-foreground/80 mb-10 max-w-2xl mx-auto">
                     Let's work together to build safe, efficient, and compliant infrastructure.
                 </p>

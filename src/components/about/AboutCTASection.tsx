@@ -1,11 +1,25 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { TypewriterEffect } from "@/components/ui/typewriter-effect";
 
 export function AboutCTASection() {
     return (
         <section className="py-20 bg-primary text-primary-foreground">
             <div className="container text-center">
-                <h2 className="text-3xl md:text-4xl font-bold mb-8">Work With Our Expert Engineering Team</h2>
+                <div className="mb-8">
+                    <TypewriterEffect
+                        words={[
+                            { text: "Work" },
+                            { text: "With" },
+                            { text: "Our" },
+                            { text: "Expert" },
+                            { text: "Engineering" },
+                            { text: "Team", className: "text-white" },
+                        ]}
+                        className="text-3xl md:text-4xl font-bold justify-center text-white"
+                        cursorClassName="bg-white"
+                    />
+                </div>
                 <Button
                     asChild
                     size="lg"

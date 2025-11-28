@@ -11,6 +11,7 @@ interface KineticButtonProps {
     variant?: "primary" | "secondary" | "accent";
     size?: "sm" | "md" | "lg";
     disabled?: boolean;
+    type?: "button" | "submit" | "reset";
 }
 
 export function KineticButton({
@@ -20,6 +21,7 @@ export function KineticButton({
     variant = "primary",
     size = "md",
     disabled = false,
+    type = "button",
 }: KineticButtonProps) {
     const [isHovered, setIsHovered] = useState(false);
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -57,6 +59,7 @@ export function KineticButton({
             )}
             onClick={onClick}
             disabled={disabled}
+            type={type}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
             onMouseMove={handleMouseMove}

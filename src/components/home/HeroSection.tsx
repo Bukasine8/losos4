@@ -6,6 +6,7 @@ import { TypewriterEffect } from "@/components/ui/typewriter-effect";
 import { ParticleField } from "@/components/ui/ParticleField";
 import { AnimatedText } from "@/components/ui/AnimatedText";
 import { KineticButton } from "@/components/ui/KineticButton";
+import { CountingNumber } from "@/components/ui/CountingNumber";
 import { ArrowRight, Sparkles } from "lucide-react";
 import Link from "next/link";
 
@@ -145,13 +146,17 @@ export function HeroSection() {
                         className="mt-20 grid grid-cols-3 gap-8 max-w-3xl mx-auto"
                     >
                         {[
-                            { number: "500+", label: "Projects" },
-                            { number: "15+", label: "Years" },
-                            { number: "98%", label: "Satisfaction" },
+                            { number: 500, suffix: "+", label: "Projects" },
+                            { number: 15, suffix: "+", label: "Years" },
+                            { number: 98, suffix: "%", label: "Satisfaction" },
                         ].map((stat, index) => (
                             <div key={index} className="text-center">
-                                <div className="text-3xl md:text-4xl font-bold gradient-text mb-2">
-                                    {stat.number}
+                                <div className="text-3xl md:text-4xl font-bold gradient-text mb-2 flex justify-center">
+                                    <CountingNumber
+                                        end={stat.number}
+                                        suffix={stat.suffix}
+                                        duration={2500}
+                                    />
                                 </div>
                                 <div className="text-sm text-foreground/60">{stat.label}</div>
                             </div>

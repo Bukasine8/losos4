@@ -1,3 +1,5 @@
+import { TypewriterEffect } from "@/components/ui/typewriter-effect";
+
 export function ServicesHeroSection() {
     return (
         <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden bg-slate-900">
@@ -12,12 +14,29 @@ export function ServicesHeroSection() {
 
             {/* Content */}
             <div className="container relative z-10 text-center text-white px-4">
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-                    Our Services
-                </h1>
-                <h2 className="text-xl md:text-2xl text-slate-200 font-light mb-6">
-                    Comprehensive Engineering & Consultancy Solutions
-                </h2>
+                <div className="mb-4">
+                    <TypewriterEffect
+                        words={[
+                            { text: "Our" },
+                            { text: "Services", className: "text-primary" },
+                        ]}
+                        className="text-4xl md:text-5xl lg:text-6xl font-bold justify-center text-white"
+                        cursorClassName="bg-white"
+                    />
+                </div>
+                <div className="mb-6">
+                    <TypewriterEffect
+                        words={[
+                            { text: "Comprehensive" },
+                            { text: "Engineering" },
+                            { text: "&" },
+                            { text: "Consultancy" },
+                            { text: "Solutions" },
+                        ]}
+                        className="text-xl md:text-2xl font-light justify-center text-slate-200"
+                        cursorClassName="bg-slate-200"
+                    />
+                </div>
                 <p className="max-w-2xl mx-auto text-slate-300 text-lg">
                     From mechanical and electrical design to fire safety and project management,
                     we deliver precision-engineered solutions for complex infrastructure challenges.

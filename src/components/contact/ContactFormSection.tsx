@@ -16,6 +16,7 @@ import { MapPin, Phone, Mail, Clock, Upload, CheckCircle2, Send } from "lucide-r
 import { GlassCard } from "@/components/ui/GlassCard";
 import { KineticButton } from "@/components/ui/KineticButton";
 import { FuturisticBackground } from "@/components/ui/FuturisticBackground";
+import { TypewriterEffect } from "@/components/ui/typewriter-effect";
 
 export function ContactFormSection() {
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -66,7 +67,17 @@ export function ContactFormSection() {
                         transition={{ duration: 0.6 }}
                     >
                         <GlassCard className="p-8">
-                            <h2 className="text-2xl font-bold mb-6 gradient-text">Send us a Message</h2>
+                            <div className="mb-6">
+                                <TypewriterEffect
+                                    words={[
+                                        { text: "Send" },
+                                        { text: "us" },
+                                        { text: "a" },
+                                        { text: "Message", className: "gradient-text" },
+                                    ]}
+                                    className="text-2xl font-bold justify-start"
+                                />
+                            </div>
 
                             {submitStatus === "success" ? (
                                 <motion.div
@@ -216,7 +227,15 @@ export function ContactFormSection() {
                     >
                         {/* Contact Info */}
                         <GlassCard className="p-8">
-                            <h2 className="text-2xl font-bold mb-6 gradient-text">Contact Information</h2>
+                            <div className="mb-6">
+                                <TypewriterEffect
+                                    words={[
+                                        { text: "Contact" },
+                                        { text: "Information", className: "gradient-text" },
+                                    ]}
+                                    className="text-2xl font-bold justify-start"
+                                />
+                            </div>
                             <p className="text-foreground/70 mb-8">
                                 Reach out to us directly through any of our official channels.
                             </p>

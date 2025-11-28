@@ -44,8 +44,10 @@ export function ParticleField({
             opacity: number;
 
             constructor() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
+                const canvasWidth = canvas?.width || 800;
+                const canvasHeight = canvas?.height || 600;
+                this.x = Math.random() * canvasWidth;
+                this.y = Math.random() * canvasHeight;
                 this.size = Math.random() * 3 + 1;
                 this.speedX = Math.random() * 0.5 - 0.25;
                 this.speedY = Math.random() * 0.5 - 0.25;
@@ -53,6 +55,7 @@ export function ParticleField({
             }
 
             update() {
+                if (!canvas) return;
                 this.x += this.speedX;
                 this.y += this.speedY;
 
@@ -92,6 +95,7 @@ export function ParticleField({
         // Animation loop
         let animationFrameId: number;
         const animate = () => {
+            if (!canvas || !ctx) return;
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
             particles.forEach((particle) => {

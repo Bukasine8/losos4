@@ -82,9 +82,17 @@ export function CompanyOverviewSection() {
                             >
                                 <span className="text-sm font-medium gradient-text">Who We Are</span>
                             </motion.div>
-                            <h2 className="text-4xl md:text-5xl font-bold mb-6 font-display gradient-text">
-                                Engineering Excellence Since 2009
-                            </h2>
+                            <div className="mb-6">
+                                <TypewriterEffect
+                                    words={[
+                                        { text: "Engineering" },
+                                        { text: "Excellence" },
+                                        { text: "Since" },
+                                        { text: "2009", className: "gradient-text" },
+                                    ]}
+                                    className="text-4xl md:text-5xl font-bold font-display justify-start"
+                                />
+                            </div>
                         </div>
 
                         <div className="space-y-6 text-lg text-foreground/70 leading-relaxed">

@@ -1,8 +1,11 @@
 "use client";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
-import { ExternalLink } from "lucide-react";
+import Link from "next/link";
+import { ExternalLink, ArrowRight } from "lucide-react";
+import { GlassCard } from "@/components/ui/GlassCard";
+import { FuturisticBackground } from "@/components/ui/FuturisticBackground";
+import { TypewriterEffect } from "@/components/ui/typewriter-effect";
 
 const projects = [
     {
@@ -48,9 +51,15 @@ export function ProjectsTeaserSection() {
                         >
                             <span className="text-sm font-medium gradient-text-accent">Our Work</span>
                         </motion.div>
-                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 font-display">
-                            Featured <span className="gradient-text-accent">Projects</span>
-                        </h2>
+                        <div className="mb-4">
+                            <TypewriterEffect
+                                words={[
+                                    { text: "Featured" },
+                                    { text: "Projects", className: "gradient-text-accent" },
+                                ]}
+                                className="text-4xl md:text-5xl lg:text-6xl font-bold font-display"
+                            />
+                        </div>
                         <p className="text-lg text-foreground/70 max-w-2xl">
                             A glimpse into our portfolio of successful engineering deliveries.
                         </p>
