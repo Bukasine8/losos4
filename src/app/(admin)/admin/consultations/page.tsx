@@ -169,8 +169,8 @@ export default function ConsultationsPage() {
                     className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4"
                     onClick={() => setSelectedRequest(null)}
                 >
-                    <GlassCard
-                        className="max-w-2xl w-full p-6 max-h-[80vh] overflow-y-auto"
+                    <div
+                        className="glass max-w-2xl w-full p-6 max-h-[80vh] overflow-y-auto rounded-lg border border-white/10 backdrop-blur-xl bg-background/80"
                         onClick={(e) => e.stopPropagation()}
                     >
                         <h2 className="text-2xl font-bold mb-4">Request Details</h2>
@@ -226,7 +226,7 @@ export default function ConsultationsPage() {
                         <div className="mt-6 flex justify-end">
                             <Button onClick={() => setSelectedRequest(null)}>Close</Button>
                         </div>
-                    </GlassCard>
+                    </div>
                 </div>
             )}
         </div>
