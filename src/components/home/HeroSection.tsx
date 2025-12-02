@@ -10,7 +10,11 @@ import { CountingNumber } from "@/components/ui/CountingNumber";
 import { ArrowRight, Sparkles } from "lucide-react";
 import Link from "next/link";
 
+import { useState } from "react";
+
 export function HeroSection() {
+    const [isHeadingDone, setIsHeadingDone] = useState(false);
+
     const subtitleWords = [
         { text: "Building" },
         { text: "reliable" },
@@ -99,19 +103,14 @@ export function HeroSection() {
 
                     {/* Main Heading with Encrypted Text */}
                     <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-8 font-display leading-tight">
-                        <EncryptedText
-                            text="Losos4 Engineering"
-                            className="gradient-text block"
-                            revealDelayMs={40}
-                        />
+                        <span className="gradient-text block">Losos4 Engineering</span>
                     </h1>
 
                     {/* Subtitle with Typewriter Effect */}
-                    <div className="mb-12">
-                        <TypewriterEffect
-                            words={subtitleWords}
-                            className="text-xl md:text-2xl justify-center"
-                        />
+                    <div className="mb-12 min-h-[32px]">
+                        <p className="text-xl md:text-2xl justify-center">
+                            Building reliable engineering solutions for today and <span className="gradient-text">tomorrow.</span>
+                        </p>
                     </div>
 
                     {/* CTA Buttons */}
@@ -123,7 +122,7 @@ export function HeroSection() {
                     >
                         <Link href="/contact">
                             <KineticButton variant="primary" size="lg">
-                                Get Started
+                                Schedule a meeting
                                 <ArrowRight className="ml-2 h-5 w-5" />
                             </KineticButton>
                         </Link>
@@ -163,25 +162,7 @@ export function HeroSection() {
                         ))}
                     </motion.div>
 
-                    {/* Scroll Indicator */}
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ delay: 4 }}
-                        className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
-                    >
-                        <motion.div
-                            animate={{ y: [0, 10, 0] }}
-                            transition={{ duration: 2, repeat: Infinity }}
-                            className="w-6 h-10 rounded-full border-2 border-primary/30 flex items-start justify-center p-2"
-                        >
-                            <motion.div
-                                animate={{ y: [0, 12, 0] }}
-                                transition={{ duration: 2, repeat: Infinity }}
-                                className="w-1 h-2 bg-primary rounded-full"
-                            />
-                        </motion.div>
-                    </motion.div>
+
                 </div>
             </div>
         </section>

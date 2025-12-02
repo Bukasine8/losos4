@@ -11,6 +11,7 @@ type EncryptedTextProps = {
     flipDelayMs?: number;
     encryptedClassName?: string;
     revealedClassName?: string;
+    onComplete?: () => void;
 };
 
 const DEFAULT_CHARSET =
@@ -42,6 +43,7 @@ export const EncryptedText: React.FC<EncryptedTextProps> = ({
     flipDelayMs = 50,
     encryptedClassName,
     revealedClassName,
+    onComplete,
 }) => {
     const ref = useRef<HTMLSpanElement>(null);
     const isInView = useInView(ref, { once: true });
@@ -54,8 +56,14 @@ export const EncryptedText: React.FC<EncryptedTextProps> = ({
         text ? generateGibberishPreservingSpaces(text, charset).split("") : [],
     );
 
+    const [isMounted, setIsMounted] = useState(false);
+
     useEffect(() => {
-        if (!isInView) return;
+        setIsMounted(true);
+    }, []);
+
+    useEffect(() => {
+        if (!isInView || !isMounted) return;
 
         const initial = text
             ? generateGibberishPreservingSpaces(text, charset)
@@ -80,6 +88,9 @@ export const EncryptedText: React.FC<EncryptedTextProps> = ({
             setRevealCount(currentRevealCount);
 
             if (currentRevealCount >= totalLength) {
+                if (!isCancelled && onComplete) {
+                    onComplete();
+                }
                 return;
             }
 
@@ -109,7 +120,7 @@ export const EncryptedText: React.FC<EncryptedTextProps> = ({
                 cancelAnimationFrame(animationFrameRef.current);
             }
         };
-    }, [isInView, text, revealDelayMs, charset, flipDelayMs]);
+    }, [isInView, text, revealDelayMs, charset, flipDelayMs, onComplete]);
 
     if (!text) return null;
 
@@ -122,12 +133,23 @@ export const EncryptedText: React.FC<EncryptedTextProps> = ({
         >
             {text.split("").map((char, index) => {
                 const isRevealed = index < revealCount;
+                // Use a stable character (e.g., the original char or a placeholder) for the initial server render
+                // to avoid hydration mismatch. Ideally, we should only start scrambling on the client.
+                // However, since we want the effect to start immediately, we can use a state to track if mounted.
+                // For now, let's just ensure the random generation is consistent or deferred.
+
+                // Better approach: Use a state 'isMounted' to control rendering of random chars.
+                // But to fix the immediate error without major refactor:
+                // We will render the original text initially (hidden or not) and then switch to scrambled on mount.
+                // Actually, the issue is `generateRandomCharacter` being called during render.
+
                 const displayChar = isRevealed
                     ? char
                     : char === " "
                         ? " "
-                        : (scrambleCharsRef.current[index] ??
-                            generateRandomCharacter(charset));
+                        : isMounted
+                            ? (scrambleCharsRef.current[index] ?? generateRandomCharacter(charset))
+                            : char; // Show original char on server/initial render
 
                 return (
                     <span

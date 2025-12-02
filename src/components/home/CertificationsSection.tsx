@@ -27,14 +27,9 @@ export function CertificationsSection() {
                             transition={{ duration: 0.45, delay: 0.05 }}
                             className="mt-4 mb-3"
                         >
-                            <TypewriterEffect
-                                words={[
-                                    { text: "Proven" },
-                                    { text: "engineering" },
-                                    { text: "credentials", className: "gradient-text" },
-                                ]}
-                                className="text-3xl md:text-4xl lg:text-5xl font-bold font-display"
-                            />
+                            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-display">
+                                Proven engineering <span className="gradient-text">credentials</span>
+                            </h2>
                         </motion.div>
                         <motion.p
                             initial={{ opacity: 0, y: 16 }}

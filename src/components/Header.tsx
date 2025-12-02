@@ -160,7 +160,7 @@ export function Header() {
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                         >
-                            <span className="relative z-10">Get a Quote</span>
+                            <span className="relative z-10">Get in Touch</span>
                             <motion.div
                                 className="absolute inset-0 bg-gradient-to-r from-accent via-primary to-secondary"
                                 initial={{ x: "100%" }}
@@ -226,7 +226,7 @@ export function Header() {
                             <div className="mt-auto">
                                 <Link href="/contact" className="block">
                                     <button className="w-full px-6 py-3 rounded-full font-semibold bg-gradient-to-r from-primary to-secondary text-white shadow-lg hover:shadow-xl transition-shadow">
-                                        Get a Quote
+                                        Get in Touch
                                     </button>
                                 </Link>
                             </div>
