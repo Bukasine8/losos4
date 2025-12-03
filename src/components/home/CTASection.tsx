@@ -99,7 +99,7 @@ export function CTASection() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.2 }}
-                        className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 font-display"
+                        className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 font-display"
                     >
                         Ready to Start Your{" "}
                         <span className="gradient-text-cyber">Project?</span>
@@ -125,15 +125,15 @@ export function CTASection() {
                         transition={{ delay: 0.4 }}
                         className="flex flex-col sm:flex-row gap-4 justify-center items-center"
                     >
-                        <Link href="/contact">
-                            <KineticButton variant="accent" size="lg">
+                        <Link href="/contact" className="w-full sm:w-auto">
+                            <KineticButton variant="accent" size="lg" className="w-full">
                                 Get a Quote
                                 <ArrowRight className="ml-2 h-5 w-5" />
                             </KineticButton>
                         </Link>
-                        <Link href="/services">
+                        <Link href="/services" className="w-full sm:w-auto">
                             <motion.button
-                                className="px-8 py-4 rounded-full font-semibold text-lg glass border border-white/20 hover:border-accent/50 transition-all duration-300"
+                                className="w-full px-8 py-4 rounded-full font-semibold text-lg glass border border-white/20 hover:border-accent/50 transition-all duration-300"
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
                             >

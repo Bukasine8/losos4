@@ -102,13 +102,13 @@ export function HeroSection() {
                     </motion.div>
 
                     {/* Main Heading with Encrypted Text */}
-                    <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-8 font-display leading-tight">
+                    <h1 className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-6 md:mb-8 font-display leading-tight">
                         <span className="gradient-text block">Losos4 Engineering</span>
                     </h1>
 
                     {/* Subtitle with Typewriter Effect */}
-                    <div className="mb-12 min-h-[32px]">
-                        <p className="text-xl md:text-2xl justify-center">
+                    <div className="mb-10 md:mb-12 min-h-[32px]">
+                        <p className="text-lg md:text-2xl justify-center">
                             Building reliable engineering solutions for today and <span className="gradient-text">tomorrow.</span>
                         </p>
                     </div>
@@ -120,15 +120,15 @@ export function HeroSection() {
                         transition={{ delay: 3 }}
                         className="flex flex-col sm:flex-row gap-4 justify-center items-center"
                     >
-                        <Link href="/contact">
+                        <Link href="/contact" className="w-full sm:w-auto">
                             <KineticButton variant="primary" size="lg">
                                 Schedule a meeting
                                 <ArrowRight className="ml-2 h-5 w-5" />
                             </KineticButton>
                         </Link>
-                        <Link href="/projects">
+                        <Link href="/projects" className="w-full sm:w-auto">
                             <motion.button
-                                className="px-8 py-4 rounded-full font-semibold text-lg glass border border-white/20 hover:border-primary/50 transition-all duration-300"
+                                className="w-full px-8 py-4 rounded-full font-semibold text-lg glass border border-white/20 hover:border-primary/50 transition-all duration-300"
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
                             >
@@ -142,7 +142,7 @@ export function HeroSection() {
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 3.5 }}
-                        className="mt-20 grid grid-cols-3 gap-8 max-w-3xl mx-auto"
+                        className="mt-16 md:mt-20 grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-3xl mx-auto"
                     >
                         {[
                             { number: 500, suffix: "+", label: "Projects" },
