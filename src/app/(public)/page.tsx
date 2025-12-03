@@ -1,7 +1,6 @@
 import { HeroSection } from "@/components/home/HeroSection";
 import { ValuePropsSection } from "@/components/home/ValuePropsSection";
 import { ServicesTeaserSection } from "@/components/home/ServicesTeaserSection";
-import { CertificationsSection } from "@/components/home/CertificationsSection";
 import { ProjectsTeaserSection } from "@/components/home/ProjectsTeaserSection";
 import { InfiniteTestimonials } from "@/components/ui/InfiniteTestimonials";
 import { CTASection } from "@/components/home/CTASection";
@@ -12,7 +11,6 @@ export default function Home() {
             <HeroSection />
             <ValuePropsSection />
             <ServicesTeaserSection />
-            <CertificationsSection />
             <ProjectsTeaserSection />
             <section className="py-20 bg-muted/10">
                 <div className="container">
