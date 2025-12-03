@@ -89,34 +89,8 @@ export default function AdminDashboard() {
                                 <Icon className={`h-8 w-8 ${stat.color}`} />
                             </div>
                         </GlassCard>
-                    );
-                })}
-            </div>
-
-            {/* Quick Actions */}
-            <GlassCard className="p-6">
-                <h2 className="text-xl font-semibold mb-4">Quick Actions</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <a
-                        href="/admin/consultations"
-                        className="p-4 rounded-lg border border-border hover:bg-muted transition-colors"
-                    >
-                        <h3 className="font-medium mb-1">View Consultation Requests</h3>
-                        <p className="text-sm text-muted-foreground">
-                            Manage incoming client requests
-                        </p>
-                    </a>
-                    <a
-                        href="/admin/users"
-                        className="p-4 rounded-lg border border-border hover:bg-muted transition-colors"
-                    >
-                        <h3 className="font-medium mb-1">Manage Users</h3>
-                        <p className="text-sm text-muted-foreground">
-                            View and manage admin users
-                        </p>
-                    </a>
                 </div>
-            </GlassCard>
-        </div>
+        </GlassCard>
+        </div >
     );
 }

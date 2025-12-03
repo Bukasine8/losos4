@@ -14,12 +14,10 @@ import {
     LogOut,
 } from "lucide-react";
 
-const navItems = [
-    { name: "Dashboard", href: "/admin", icon: LayoutDashboard },
-    { name: "Consultation Requests", href: "/admin/consultations", icon: FileText },
-    { name: "Users", href: "/admin/users", icon: Users },
-    { name: "Settings", href: "/admin/settings", icon: Settings },
-];
+{ name: "Dashboard", href: "/manager", icon: LayoutDashboard },
+{ name: "Consultation Requests", href: "/manager/consultations", icon: FileText },
+{ name: "Users", href: "/manager/users", icon: Users },
+{ name: "Settings", href: "/manager/settings", icon: Settings },
 
 export default function AdminLayout({
     children,
