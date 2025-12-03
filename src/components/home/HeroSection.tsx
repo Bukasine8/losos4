@@ -107,7 +107,7 @@ export function HeroSection() {
                         transition={{ delay: 3 }}
                         className="flex flex-col sm:flex-row gap-4 justify-center items-center"
                     >
-                        <Link href="/contact">
+                        <Link href="/book-meeting">
                             <KineticButton variant="primary" size="lg">
                                 Schedule a meeting
                                 <ArrowRight className="ml-2 h-5 w-5" />
