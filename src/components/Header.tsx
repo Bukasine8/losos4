@@ -184,8 +184,8 @@ export function Header() {
                             <Menu className="h-6 w-6" />
                         </Button>
                     </SheetTrigger>
-                    <SheetContent side="right" className="glass-strong border-l border-white/10 w-[300px] sm:w-[400px]">
-                        <div className="flex flex-col gap-6 mt-6">
+                    <SheetContent side="right" className="bg-[#001f3f] border-l border-white/10 w-[300px] sm:w-[400px]">
+                        <div className="flex flex-col gap-6 mt-6 px-6 h-full">
                             <Logo />
                             <nav className="flex flex-col gap-4">
                                 {navLinks.map((link) => (
@@ -223,10 +223,10 @@ export function Header() {
                                     </div>
                                 ))}
                             </nav>
-                            <div className="mt-auto">
+                            <div className="mt-auto mb-8 flex justify-center">
                                 <Link href="/contact" className="block">
-                                    <button className="w-full px-6 py-3 rounded-full font-semibold bg-gradient-to-r from-primary to-secondary text-white shadow-lg hover:shadow-xl transition-shadow">
-                                        Get in Touch
+                                    <button className="px-8 py-3 rounded-full font-semibold bg-gradient-to-r from-primary to-secondary text-white shadow-lg hover:shadow-xl transition-shadow">
+                                        Contact Us
                                     </button>
                                 </Link>
                             </div>

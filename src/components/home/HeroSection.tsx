@@ -1,31 +1,15 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { EncryptedText } from "@/components/ui/EncryptedText";
-import { TypewriterEffect } from "@/components/ui/typewriter-effect";
+import { SplitText } from "@/components/ui/SplitText";
+import { TextType } from "@/components/ui/TextType";
+import { CountUp } from "@/components/ui/CountUp";
 import { ParticleField } from "@/components/ui/ParticleField";
-import { AnimatedText } from "@/components/ui/AnimatedText";
 import { KineticButton } from "@/components/ui/KineticButton";
-import { CountingNumber } from "@/components/ui/CountingNumber";
 import { ArrowRight, Sparkles } from "lucide-react";
 import Link from "next/link";
 
-import { useState } from "react";
-
 export function HeroSection() {
-    const [isHeadingDone, setIsHeadingDone] = useState(false);
-
-    const subtitleWords = [
-        { text: "Building" },
-        { text: "reliable" },
-        { text: "engineering" },
-        { text: "solutions" },
-        { text: "for" },
-        { text: "today" },
-        { text: "and" },
-        { text: "tomorrow.", className: "gradient-text" },
-    ];
-
     return (
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
             {/* Particle Background */}
@@ -101,16 +85,19 @@ export function HeroSection() {
                         </span>
                     </motion.div>
 
-                    {/* Main Heading with Encrypted Text */}
+                    {/* Main Heading with SplitText */}
                     <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-8 font-display leading-tight">
-                        <span className="gradient-text block">Losos4 Engineering</span>
+                        <SplitText className="gradient-text block">Losos4 Engineering</SplitText>
                     </h1>
 
-                    {/* Subtitle with Typewriter Effect */}
+                    {/* Subtitle with TextType */}
                     <div className="mb-12 min-h-[32px]">
-                        <p className="text-xl md:text-2xl justify-center">
-                            Building reliable engineering solutions for today and <span className="gradient-text">tomorrow.</span>
-                        </p>
+                        <div className="text-xl md:text-2xl justify-center flex gap-2">
+                            <TextType
+                                text="Building reliable engineering solutions for today and tomorrow."
+                                className="inline-block"
+                            />
+                        </div>
                     </div>
 
                     {/* CTA Buttons */}
@@ -151,18 +138,15 @@ export function HeroSection() {
                         ].map((stat, index) => (
                             <div key={index} className="text-center">
                                 <div className="text-3xl md:text-4xl font-bold gradient-text mb-2 flex justify-center">
-                                    <CountingNumber
-                                        end={stat.number}
+                                    <CountUp
+                                        value={stat.number}
                                         suffix={stat.suffix}
-                                        duration={2500}
                                     />
                                 </div>
                                 <div className="text-sm text-foreground/60">{stat.label}</div>
                             </div>
                         ))}
                     </motion.div>
-
-
                 </div>
             </div>
         </section>

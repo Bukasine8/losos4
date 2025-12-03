@@ -4,7 +4,8 @@ import { motion } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { FuturisticBackground } from "@/components/ui/FuturisticBackground";
-import { TypewriterEffect } from "@/components/ui/typewriter-effect";
+import { TextType } from "@/components/ui/TextType";
+import { TextGenerateEffect } from "@/components/ui/TextGenerateEffect";
 
 const valueProps = [
     {
@@ -48,34 +49,17 @@ export function ValuePropsSection() {
                         </span>
                     </motion.div>
 
-                    <motion.div
-                        initial={{ opacity: 0, y: 16 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.45, delay: 0.05 }}
-                        className="mb-4"
-                    >
-                        <TypewriterEffect
-                            words={[
-                                { text: "Engineering" },
-                                { text: "with" },
-                                { text: "measurable", className: "gradient-text" },
-                                { text: "impact", className: "gradient-text" },
-                            ]}
-                            className="text-4xl md:text-5xl font-bold font-display justify-center"
-                        />
-                    </motion.div>
+                    <div className="mb-4">
+                        <h2 className="text-4xl md:text-5xl font-bold font-display justify-center">
+                            <TextType text="Engineering with measurable impact" />
+                        </h2>
+                    </div>
 
-                    <motion.p
-                        initial={{ opacity: 0, y: 16 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.45, delay: 0.1 }}
-                        className="text-lg text-foreground/70"
-                    >
-                        Every project is engineered for long‑term performance, safety, and maintainability
-                         whether it&apos;s a new build, retrofit, or complex infrastructure upgrade.
-                    </motion.p>
+                    <div className="text-lg text-foreground/70">
+                        <TextGenerateEffect
+                            words="Every project is engineered for long‑term performance, safety, and maintainability whether it's a new build, retrofit, or complex infrastructure upgrade."
+                        />
+                    </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">

@@ -1,10 +1,13 @@
+import dynamic from "next/dynamic";
 import { AboutHeroSection } from "@/components/about/AboutHeroSection";
 import { CompanyOverviewSection } from "@/components/about/CompanyOverviewSection";
-import { MissionVisionValuesSection } from "@/components/about/MissionVisionValuesSection";
-import { AboutCertificationsSection } from "@/components/about/AboutCertificationsSection";
-import { AwardsSection } from "@/components/about/AwardsSection";
-import { TeamSection } from "@/components/about/TeamSection";
-import { AboutCTASection } from "@/components/about/AboutCTASection";
+
+// Lazy load components below the fold
+const MissionVisionValuesSection = dynamic(() => import("@/components/about/MissionVisionValuesSection").then(mod => mod.MissionVisionValuesSection), { ssr: true });
+const AboutCertificationsSection = dynamic(() => import("@/components/about/AboutCertificationsSection").then(mod => mod.AboutCertificationsSection), { ssr: true });
+const AwardsSection = dynamic(() => import("@/components/about/AwardsSection").then(mod => mod.AwardsSection), { ssr: true });
+const TeamSection = dynamic(() => import("@/components/about/TeamSection").then(mod => mod.TeamSection), { ssr: true });
+const AboutCTASection = dynamic(() => import("@/components/about/AboutCTASection").then(mod => mod.AboutCTASection), { ssr: true });
 
 export default function AboutPage() {
     return (
