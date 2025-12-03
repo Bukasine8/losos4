@@ -8,8 +8,11 @@ import { ParticleField } from "@/components/ui/ParticleField";
 import { KineticButton } from "@/components/ui/KineticButton";
 import { ArrowRight, Sparkles } from "lucide-react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export function HeroSection() {
+    const router = useRouter();
+
     return (
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
             {/* Particle Background */}
@@ -107,12 +110,15 @@ export function HeroSection() {
                         transition={{ delay: 3 }}
                         className="flex flex-col sm:flex-row gap-4 justify-center items-center"
                     >
-                        <Link href="/book-meeting">
-                            <KineticButton variant="primary" size="lg">
-                                Schedule a meeting
-                                <ArrowRight className="ml-2 h-5 w-5" />
-                            </KineticButton>
-                        </Link>
+                        <KineticButton
+                            variant="primary"
+                            size="lg"
+                            onClick={() => router.push("/book-meeting")}
+                        >
+                            Schedule a meeting
+                            <ArrowRight className="ml-2 h-5 w-5" />
+                        </KineticButton>
+
                         <Link href="/projects">
                             <motion.button
                                 className="px-8 py-4 rounded-full font-semibold text-lg glass border border-white/20 hover:border-primary/50 transition-all duration-300"
