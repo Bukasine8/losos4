@@ -33,8 +33,12 @@ export default function LoginPage() {
                 router.push("/manager");
                 router.refresh();
             }
-        } catch (err: any) {
-            setError(err.message || "Failed to sign in. Please check your credentials.");
+        } catch (err) {
+            if (err instanceof Error) {
+                setError(err.message || "Failed to sign in. Please check your credentials.");
+            } else {
+                setError("An unknown error occurred.");
+            }
         } finally {
             setLoading(false);
         }

@@ -180,7 +180,7 @@ export function TestimonialsCarousel() {
 
                                     {/* Content */}
                                     <p className="text-xl md:text-2xl text-center mb-8 leading-relaxed">
-                                        "{testimonials[currentIndex].content}"
+                                        &quot;{testimonials[currentIndex].content}&quot;
                                     </p>
 
                                     {/* Author */}

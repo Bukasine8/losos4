@@ -1,5 +1,5 @@
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import path from 'path';
 const file = path.resolve(process.cwd(), 'src/components/Header.tsx');
 const src = fs.readFileSync(file, 'utf8');
 let bal = 0; let line = 1; let errLine = null;

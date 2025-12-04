@@ -89,8 +89,9 @@ export default function AdminDashboard() {
                                 <Icon className={`h-8 w-8 ${stat.color}`} />
                             </div>
                         </GlassCard>
-                </div>
-        </GlassCard>
-        </div >
+                    );
+                })}
+            </div>
+        </div>
     );
 }

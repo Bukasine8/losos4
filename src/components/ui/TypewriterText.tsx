@@ -33,7 +33,7 @@ export function TypewriterText({
 
             return () => clearTimeout(timeout);
         } else {
-            setIsComplete(true);
+            requestAnimationFrame(() => setIsComplete(true));
         }
     }, [currentIndex, text, speed, delay]);
 

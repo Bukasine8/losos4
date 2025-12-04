@@ -12,7 +12,7 @@ export function TermsContentSection() {
                     {/* Introduction */}
                     <h2 className="text-2xl font-bold mb-4 mt-12">1. Introduction / Scope</h2>
                     <p className="text-base leading-relaxed mb-6">
-                        These Terms and Conditions ("Terms") govern your use of the services provided by Losos4 Engineering Consultancy ("Losos4", "we", "us", or "our"). By engaging our services, submitting an enquiry, or accessing our website, you agree to be bound by these Terms. If you do not agree with any part of these Terms, please do not use our services.
+                        These Terms and Conditions (&quot;Terms&quot;) govern your use of the services provided by Losos4 Engineering Consultancy (&quot;Losos4&quot;, &quot;we&quot;, &quot;us&quot;, or &quot;our&quot;). By engaging our services, submitting an enquiry, or accessing our website, you agree to be bound by these Terms. If you do not agree with any part of these Terms, please do not use our services.
                     </p>
 
                     {/* Services Disclaimer */}

@@ -8,12 +8,13 @@ import { GlassCard } from "@/components/ui/GlassCard";
 import { ChevronLeft } from "lucide-react";
 import { supabaseBrowser } from "@/lib/supabase-browser";
 import { format } from "date-fns";
+import { BookingData } from "@/types";
 
 interface ClientInfoFormProps {
     meetingType: "physical" | "online";
     date: Date;
     time: string;
-    onSubmit: (data: any) => void;
+    onSubmit: (data: BookingData) => void;
     onBack: () => void;
 }
 

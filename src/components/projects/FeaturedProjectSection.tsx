@@ -30,7 +30,7 @@ export function FeaturedProjectSection() {
                             Engineering a Landmark Infrastructure
                         </h2>
                         <p className="text-lg text-muted-foreground leading-relaxed">
-                            We provided comprehensive electrical and fire safety consultancy for one of Nigeria's most significant infrastructure projects.
+                            We provided comprehensive electrical and fire safety consultancy for one of Nigeria&apos;s most significant infrastructure projects.
                             Our team ensured robust power distribution for heavy machinery and implemented a state-of-the-art fire suppression system.
                         </p>
 

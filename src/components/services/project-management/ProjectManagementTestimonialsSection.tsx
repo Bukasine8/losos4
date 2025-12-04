@@ -42,7 +42,7 @@ export function ProjectManagementTestimonialsSection() {
                             <GlassCard className="p-8 h-full flex flex-col relative">
                                 <Quote className="absolute top-6 right-6 w-8 h-8 text-blue-500/20" />
                                 <p className="text-lg text-muted-foreground italic mb-6 flex-grow">
-                                    "{item.quote}"
+                                    &quot;{item.quote}&quot;
                                 </p>
                                 <div>
                                     <p className="font-bold text-foreground">{item.author}</p>

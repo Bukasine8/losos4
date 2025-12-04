@@ -12,19 +12,19 @@ export function CertificationsSection() {
                 <div className="flex flex-col md:flex-row items-end justify-between gap-6 mb-12">
                     <div className="max-w-2xl">
                         <motion.div
-                            initial={{ opacity: 0, y: 10 }}
+                            initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.4 }}
+                            transition={{ duration: 0.5, delay: 0.2 }}
                             className="inline-block px-4 py-2 rounded-full border border-primary/20 text-xs font-medium uppercase tracking-[0.2em] text-primary/90 bg-primary/5"
                         >
                             Trusted and certified
                         </motion.div>
                         <motion.div
-                            initial={{ opacity: 0, y: 16 }}
+                            initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.45, delay: 0.05 }}
+                            transition={{ duration: 0.6, delay: 0.4 }}
                             className="mt-4 mb-3"
                         >
                             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-display">
@@ -32,10 +32,10 @@ export function CertificationsSection() {
                             </h2>
                         </motion.div>
                         <motion.p
-                            initial={{ opacity: 0, y: 16 }}
+                            initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.45, delay: 0.1 }}
+                            transition={{ duration: 0.7, delay: 0.6 }}
                             className="text-base md:text-lg text-foreground/70"
                         >
                             Losos4 operates as a fully registered and certified engineering practice, giving
@@ -47,6 +47,8 @@ export function CertificationsSection() {
                         <motion.button
                             initial={{ opacity: 0, y: 10 }}
                             whileInView={{ opacity: 1, y: 0 }}
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.4, delay: 0.1 }}
                             className="px-6 py-3 rounded-full border border-primary/40 bg-background/60 hover:bg-primary hover:text-primary-foreground transition-colors text-sm md:text-base font-medium backdrop-blur"

@@ -82,14 +82,15 @@ export function CTASection() {
                 >
                     {/* Badge */}
                     <motion.div
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
+                        transition={{ delay: 0.2, duration: 0.5 }}
                         className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-accent/20 mb-8"
                     >
                         <Sparkles className="w-4 h-4 text-accent animate-pulse" />
                         <span className="text-sm font-medium gradient-text-accent">
-                            Let's Build Something Amazing
+                            Let&apos;s Build Something Amazing
                         </span>
                     </motion.div>
 
@@ -98,7 +99,7 @@ export function CTASection() {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        transition={{ delay: 0.2 }}
+                        transition={{ delay: 0.4, duration: 0.6 }}
                         className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 font-display"
                     >
                         Ready to Start Your{" "}
@@ -126,10 +127,12 @@ export function CTASection() {
                         className="flex flex-col sm:flex-row gap-4 justify-center items-center"
                     >
                         <Link href="/contact">
-                            <KineticButton variant="accent" size="lg">
-                                Get a Quote
-                                <ArrowRight className="ml-2 h-5 w-5" />
-                            </KineticButton>
+                            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                                <KineticButton variant="accent" size="lg">
+                                    Get a Quote
+                                    <ArrowRight className="ml-2 h-5 w-5" />
+                                </KineticButton>
+                            </motion.div>
                         </Link>
                         <Link href="/services">
                             <motion.button
@@ -150,18 +153,27 @@ export function CTASection() {
                         transition={{ delay: 0.6 }}
                         className="mt-16 flex flex-wrap justify-center gap-8 text-sm text-foreground/60"
                     >
-                        <div className="flex items-center gap-2">
+                        <motion.div
+                            className="flex items-center gap-2"
+                            whileHover={{ scale: 1.1, color: "hsl(var(--primary))" }}
+                        >
                             <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
                             <span>ISO Certified</span>
-                        </div>
-                        <div className="flex items-center gap-2">
+                        </motion.div>
+                        <motion.div
+                            className="flex items-center gap-2"
+                            whileHover={{ scale: 1.1, color: "hsl(var(--secondary))" }}
+                        >
                             <div className="w-2 h-2 rounded-full bg-secondary animate-pulse" />
                             <span>15+ Years Experience</span>
-                        </div>
-                        <div className="flex items-center gap-2">
+                        </motion.div>
+                        <motion.div
+                            className="flex items-center gap-2"
+                            whileHover={{ scale: 1.1, color: "hsl(var(--accent))" }}
+                        >
                             <div className="w-2 h-2 rounded-full bg-accent animate-pulse" />
                             <span>500+ Projects Delivered</span>
-                        </div>
+                        </motion.div>
                     </motion.div>
                 </motion.div>
             </div>
