@@ -64,7 +64,7 @@ export function MEPServicesGrid() {
                         />
                     </div>
                     <p className="text-muted-foreground max-w-2xl mx-auto">
-                        Strategic engineering advice to optimize your building's lifecycle value.
+                        Strategic engineering advice to optimize your building&apos;s lifecycle value.
                     </p>
                 </motion.div>
 

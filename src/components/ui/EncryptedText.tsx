@@ -48,30 +48,23 @@ export const EncryptedText: React.FC<EncryptedTextProps> = ({
     const ref = useRef<HTMLSpanElement>(null);
     const isInView = useInView(ref, { once: true });
 
-    const [revealCount, setRevealCount] = useState<number>(0);
+    const [displayedText, setDisplayedText] = useState(text);
+    const [isMounted, setIsMounted] = useState(false);
     const animationFrameRef = useRef<number | null>(null);
     const startTimeRef = useRef<number>(0);
     const lastFlipTimeRef = useRef<number>(0);
-    const scrambleCharsRef = useRef<string[]>(
-        text ? generateGibberishPreservingSpaces(text, charset).split("") : [],
-    );
-
-    const [isMounted, setIsMounted] = useState(false);
 
     useEffect(() => {
-        setIsMounted(true);
+        requestAnimationFrame(() => setIsMounted(true));
     }, []);
 
     useEffect(() => {
         if (!isInView || !isMounted) return;
 
-        const initial = text
-            ? generateGibberishPreservingSpaces(text, charset)
-            : "";
-        scrambleCharsRef.current = initial.split("");
+        const scrambleChars = generateGibberishPreservingSpaces(text, charset).split("");
         startTimeRef.current = performance.now();
         lastFlipTimeRef.current = startTimeRef.current;
-        setRevealCount(0);
+        requestAnimationFrame(() => setDisplayedText(scrambleChars.join("")));
 
         let isCancelled = false;
 
@@ -85,9 +78,8 @@ export const EncryptedText: React.FC<EncryptedTextProps> = ({
                 Math.floor(elapsedMs / Math.max(1, revealDelayMs)),
             );
 
-            setRevealCount(currentRevealCount);
-
             if (currentRevealCount >= totalLength) {
+                requestAnimationFrame(() => setDisplayedText(text));
                 if (!isCancelled && onComplete) {
                     onComplete();
                 }
@@ -96,18 +88,21 @@ export const EncryptedText: React.FC<EncryptedTextProps> = ({
 
             const timeSinceLastFlip = now - lastFlipTimeRef.current;
             if (timeSinceLastFlip >= Math.max(0, flipDelayMs)) {
-                for (let index = 0; index < totalLength; index += 1) {
-                    if (index >= currentRevealCount) {
-                        if (text[index] !== " ") {
-                            scrambleCharsRef.current[index] =
-                                generateRandomCharacter(charset);
-                        } else {
-                            scrambleCharsRef.current[index] = " ";
-                        }
+                const newScrambleChars = [...scrambleChars];
+                for (let index = currentRevealCount; index < totalLength; index++) {
+                    if (text[index] !== " ") {
+                        newScrambleChars[index] = generateRandomCharacter(charset);
                     }
                 }
+                scrambleChars.splice(0, scrambleChars.length, ...newScrambleChars);
                 lastFlipTimeRef.current = now;
             }
+
+            const newDisplayText =
+                text.substring(0, currentRevealCount) +
+                scrambleChars.slice(currentRevealCount).join("");
+            requestAnimationFrame(() => setDisplayedText(newDisplayText));
+
 
             animationFrameRef.current = requestAnimationFrame(update);
         };
@@ -120,7 +115,8 @@ export const EncryptedText: React.FC<EncryptedTextProps> = ({
                 cancelAnimationFrame(animationFrameRef.current);
             }
         };
-    }, [isInView, text, revealDelayMs, charset, flipDelayMs, onComplete]);
+    }, [isInView, text, revealDelayMs, charset, flipDelayMs, onComplete, isMounted]);
+
 
     if (!text) return null;
 
@@ -131,35 +127,7 @@ export const EncryptedText: React.FC<EncryptedTextProps> = ({
             aria-label={text}
             role="text"
         >
-            {text.split("").map((char, index) => {
-                const isRevealed = index < revealCount;
-                // Use a stable character (e.g., the original char or a placeholder) for the initial server render
-                // to avoid hydration mismatch. Ideally, we should only start scrambling on the client.
-                // However, since we want the effect to start immediately, we can use a state to track if mounted.
-                // For now, let's just ensure the random generation is consistent or deferred.
-
-                // Better approach: Use a state 'isMounted' to control rendering of random chars.
-                // But to fix the immediate error without major refactor:
-                // We will render the original text initially (hidden or not) and then switch to scrambled on mount.
-                // Actually, the issue is `generateRandomCharacter` being called during render.
-
-                const displayChar = isRevealed
-                    ? char
-                    : char === " "
-                        ? " "
-                        : isMounted
-                            ? (scrambleCharsRef.current[index] ?? generateRandomCharacter(charset))
-                            : char; // Show original char on server/initial render
-
-                return (
-                    <span
-                        key={index}
-                        className={cn(isRevealed ? revealedClassName : encryptedClassName)}
-                    >
-                        {displayChar}
-                    </span>
-                );
-            })}
+            {isMounted ? displayedText : text}
         </motion.span>
     );
 };

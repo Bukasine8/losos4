@@ -7,7 +7,7 @@ export function ProjectsCTASection() {
             <div className="container text-center">
                 <h2 className="text-3xl md:text-4xl font-bold mb-6">Have a project in mind?</h2>
                 <p className="text-xl text-primary-foreground/80 mb-10 max-w-2xl mx-auto">
-                    Let's discuss how our engineering expertise can bring your vision to life safely and efficiently.
+                    Let&apos;s discuss how our engineering expertise can bring your vision to life safely and efficiently.
                 </p>
                 <Button
                     asChild

@@ -108,10 +108,10 @@ export function ContactFormSection() {
                         <span className="text-sm font-medium gradient-text">Get In Touch</span>
                     </motion.div>
                     <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 font-display">
-                        Let's Build <span className="gradient-text">Together</span>
+                        Let&apos;s Build <span className="gradient-text">Together</span>
                     </h1>
                     <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
-                        Ready to start your project? Reach out and let's discuss how we can help bring your vision to life.
+                        Ready to start your project? Reach out and let&apos;s discuss how we can help bring your vision to life.
                     </p>
                 </motion.div>
 

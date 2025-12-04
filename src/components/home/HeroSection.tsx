@@ -77,9 +77,9 @@ export function HeroSection() {
                 <div className="max-w-5xl mx-auto text-center">
                     {/* Badge */}
                     <motion.div
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: 0.2 }}
+                        initial={{ opacity: 0, y: -20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.5, duration: 0.5 }}
                         className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-primary/20 mb-8"
                     >
                         <Sparkles className="w-4 h-4 text-primary animate-pulse" />
@@ -89,35 +89,47 @@ export function HeroSection() {
                     </motion.div>
 
                     {/* Main Heading with SplitText */}
-                    <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-8 font-display leading-tight">
+                    <motion.h1
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.8, duration: 0.8 }}
+                        className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-8 font-display leading-tight"
+                    >
                         <SplitText className="gradient-text block">Losos4 Engineering</SplitText>
-                    </h1>
+                    </motion.h1>
 
                     {/* Subtitle with TextType */}
-                    <div className="mb-12 min-h-[32px]">
-                        <div className="text-xl md:text-2xl justify-center flex gap-2">
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 1.5, duration: 1 }}
+                        className="mb-12 min-h-[32px]"
+                    >
+                        <div className="text-xl md:text-2xl justify-center flex gap-2 text-accent">
                             <TextType
                                 text="Building reliable engineering solutions for today and tomorrow."
                                 className="inline-block"
                             />
                         </div>
-                    </div>
+                    </motion.div>
 
                     {/* CTA Buttons */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 3 }}
+                        transition={{ delay: 4, duration: 0.6 }}
                         className="flex flex-col sm:flex-row gap-4 justify-center items-center"
                     >
-                        <KineticButton
-                            variant="primary"
-                            size="lg"
-                            onClick={() => router.push("/book-meeting")}
-                        >
-                            Schedule a meeting
-                            <ArrowRight className="ml-2 h-5 w-5" />
-                        </KineticButton>
+                        <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                            <KineticButton
+                                variant="primary"
+                                size="lg"
+                                onClick={() => router.push("/book-meeting")}
+                            >
+                                Schedule a meeting
+                                <ArrowRight className="ml-2 h-5 w-5" />
+                            </KineticButton>
+                        </motion.div>
 
                         <Link href="/projects">
                             <motion.button
@@ -142,7 +154,11 @@ export function HeroSection() {
                             { number: 15, suffix: "+", label: "Years" },
                             { number: 98, suffix: "%", label: "Satisfaction" },
                         ].map((stat, index) => (
-                            <div key={index} className="text-center">
+                            <motion.div
+                                key={index}
+                                className="text-center"
+                                whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+                            >
                                 <div className="text-3xl md:text-4xl font-bold gradient-text mb-2 flex justify-center">
                                     <CountUp
                                         value={stat.number}
@@ -150,7 +166,7 @@ export function HeroSection() {
                                     />
                                 </div>
                                 <div className="text-sm text-foreground/60">{stat.label}</div>
-                            </div>
+                            </motion.div>
                         ))}
                     </motion.div>
                 </div>

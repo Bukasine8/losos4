@@ -30,7 +30,7 @@ export function MEPCTASection() {
                         />
                     </div>
                     <p className="text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">
-                        Optimize your building's performance with our integrated engineering solutions.
+                        Optimize your building&apos;s performance with our integrated engineering solutions.
                     </p>
 
                     <Link href="/contact">

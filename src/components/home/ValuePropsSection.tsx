@@ -38,10 +38,10 @@ export function ValuePropsSection() {
             <div className="container relative z-10">
                 <div className="max-w-3xl mx-auto text-center mb-14">
                     <motion.div
-                        initial={{ opacity: 0, y: 10 }}
+                        initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.4 }}
+                        transition={{ delay: 0.2, duration: 0.5 }}
                         className="inline-flex items-center px-4 py-1 rounded-full glass border border-primary/20 mb-4"
                     >
                         <span className="text-xs font-medium gradient-text uppercase tracking-[0.2em]">
@@ -49,27 +49,40 @@ export function ValuePropsSection() {
                         </span>
                     </motion.div>
 
-                    <div className="mb-4">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.4, duration: 0.6 }}
+                        className="mb-4"
+                    >
                         <h2 className="text-4xl md:text-5xl font-bold font-display justify-center">
                             <TextType text="Engineering with measurable impact" />
                         </h2>
-                    </div>
+                    </motion.div>
 
-                    <div className="text-lg text-foreground/70">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.6, duration: 0.7 }}
+                        className="text-lg text-foreground/70"
+                    >
                         <TextGenerateEffect
                             words="Every project is engineered for long‑term performance, safety, and maintainability whether it's a new build, retrofit, or complex infrastructure upgrade."
                         />
-                    </div>
+                    </motion.div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {valueProps.map((item, index) => (
                         <motion.div
                             key={item.title}
-                            initial={{ opacity: 0, y: 30 }}
+                            initial={{ opacity: 0, y: 50 }}
                             whileInView={{ opacity: 1, y: 0 }}
+                            whileHover={{ scale: 1.05, y: -10 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.45, delay: index * 0.08 }}
+                            transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
                         >
                             <GlassCard className="h-full flex flex-col gap-4 px-6 py-6 border border-white/10">
                                 <div className="inline-flex items-center justify-center h-10 w-10 rounded-full bg-primary/10 text-primary mb-1">

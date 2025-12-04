@@ -171,14 +171,9 @@ export const InfiniteTestimonials = ({
 }) => {
     const containerRef = React.useRef<HTMLDivElement>(null);
     const scrollerRef = React.useRef<HTMLUListElement>(null);
-
-    React.useEffect(() => {
-        addAnimation();
-    }, []);
-
     const [start, setStart] = React.useState(false);
 
-    function addAnimation() {
+    const addAnimation = React.useCallback(() => {
         if (containerRef.current && scrollerRef.current) {
             const scrollerContent = Array.from(scrollerRef.current.children);
 
@@ -189,39 +184,43 @@ export const InfiniteTestimonials = ({
                 }
             });
 
+            const getDirection = () => {
+                if (containerRef.current) {
+                    if (direction === "left") {
+                        containerRef.current.style.setProperty(
+                            "--animation-direction",
+                            "forwards"
+                        );
+                    } else {
+                        containerRef.current.style.setProperty(
+                            "--animation-direction",
+                            "reverse"
+                        );
+                    }
+                }
+            };
+
+            const getSpeed = () => {
+                if (containerRef.current) {
+                    if (speed === "fast") {
+                        containerRef.current.style.setProperty("--animation-duration", "20s");
+                    } else if (speed === "normal") {
+                        containerRef.current.style.setProperty("--animation-duration", "40s");
+                    } else {
+                        containerRef.current.style.setProperty("--animation-duration", "80s");
+                    }
+                }
+            };
+
             getDirection();
             getSpeed();
             setStart(true);
         }
-    }
+    }, [direction, speed]);
 
-    const getDirection = () => {
-        if (containerRef.current) {
-            if (direction === "left") {
-                containerRef.current.style.setProperty(
-                    "--animation-direction",
-                    "forwards"
-                );
-            } else {
-                containerRef.current.style.setProperty(
-                    "--animation-direction",
-                    "reverse"
-                );
-            }
-        }
-    };
-
-    const getSpeed = () => {
-        if (containerRef.current) {
-            if (speed === "fast") {
-                containerRef.current.style.setProperty("--animation-duration", "20s");
-            } else if (speed === "normal") {
-                containerRef.current.style.setProperty("--animation-duration", "40s");
-            } else {
-                containerRef.current.style.setProperty("--animation-duration", "80s");
-            }
-        }
-    };
+    React.useEffect(() => {
+        addAnimation();
+    }, [addAnimation]);
 
     return (
         <div
@@ -244,7 +243,7 @@ export const InfiniteTestimonials = ({
                         className="w-[350px] md:w-[450px] max-w-full relative rounded-2xl border border-b-0 flex-shrink-0 border-slate-700 px-8 py-6 md:w-[450px] aspect-video"
                         style={{
                             background:
-                                "linear-gradient(180deg, var(--slate-800), var(--slate-900)",
+                                "linear-gradient(180deg, var(--slate-800), var(--slate-900))",
                         }}
                         key={item.name + idx}
                     >
@@ -257,7 +256,7 @@ export const InfiniteTestimonials = ({
                                 </div>
                                 <Quote className="absolute right-0 top-0 w-8 h-8 text-slate-500/20" />
                                 <span className="relative z-20 text-sm leading-[1.6] text-gray-100 font-normal">
-                                    "{item.quote}"
+                                    &quot;{item.quote}&quot;
                                 </span>
                             </div>
                             <div className="relative z-20 mt-6 flex flex-row items-center">

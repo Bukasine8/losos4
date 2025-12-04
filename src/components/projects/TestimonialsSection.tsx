@@ -31,7 +31,7 @@ export function TestimonialsSection() {
                         <div key={index} className="bg-muted/20 p-8 rounded-xl border relative">
                             <Quote className="h-10 w-10 text-primary/20 absolute top-6 left-6" />
                             <p className="text-muted-foreground italic mb-6 relative z-10 pt-8">
-                                "{item.quote}"
+                                &quot;{item.quote}&quot;
                             </p>
                             <div>
                                 <div className="font-bold text-foreground">{item.author}</div>

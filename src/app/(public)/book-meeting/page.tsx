@@ -10,6 +10,7 @@ import { BookingConfirmation } from "@/components/booking/BookingConfirmation";
 type BookingStep = "type" | "datetime" | "info" | "confirmation";
 
 import { Suspense } from "react";
+import { BookingData } from "@/types";
 
 function BookMeetingContent() {
     const router = useRouter();
@@ -18,7 +19,7 @@ function BookMeetingContent() {
     const [meetingType, setMeetingType] = useState<"physical" | "online" | null>(null);
     const [selectedDate, setSelectedDate] = useState<Date | null>(null);
     const [selectedTime, setSelectedTime] = useState<string | null>(null);
-    const [bookingData, setBookingData] = useState<any>(null);
+    const [bookingData, setBookingData] = useState<BookingData | null>(null);
 
     const handleTypeSelect = (type: "physical" | "online") => {
         setMeetingType(type);
@@ -31,7 +32,7 @@ function BookMeetingContent() {
         setCurrentStep("info");
     };
 
-    const handleFormSubmit = (data: any) => {
+    const handleFormSubmit = (data: BookingData) => {
         setBookingData(data);
         setCurrentStep("confirmation");
     };

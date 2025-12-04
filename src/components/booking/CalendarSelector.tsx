@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Calendar } from "@/components/ui/calendar";
 import { Button } from "@/components/ui/button";
 import { GlassCard } from "@/components/ui/GlassCard";
@@ -28,13 +28,7 @@ export function CalendarSelector({
     const [selectedTime, setSelectedTime] = useState<string | null>(null);
     const [bookedSlots, setBookedSlots] = useState<Set<string>>(new Set());
 
-    useEffect(() => {
-        if (selectedDate) {
-            fetchBookedSlots(selectedDate);
-        }
-    }, [selectedDate]);
-
-    const fetchBookedSlots = async (date: Date) => {
+    const fetchBookedSlots = useCallback(async (date: Date) => {
         const dateStr = format(date, "yyyy-MM-dd");
         const { data } = await supabaseBrowser
             .from("meetings")
@@ -46,7 +40,13 @@ export function CalendarSelector({
             data?.map((m) => m.meeting_time.substring(0, 5)) || []
         );
         setBookedSlots(booked);
-    };
+    }, []);
+
+    useEffect(() => {
+        if (selectedDate) {
+            requestAnimationFrame(() => fetchBookedSlots(selectedDate));
+        }
+    }, [selectedDate, fetchBookedSlots]);
 
     const handleContinue = () => {
         if (selectedDate && selectedTime) {

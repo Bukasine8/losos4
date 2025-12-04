@@ -4,7 +4,9 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { supabaseBrowser } from "@/lib/supabase-browser";
 
-const iconMap: Record<string, any> = {
+import { ElementType } from "react";
+
+const iconMap: Record<string, ElementType> = {
     Settings,
     Zap,
     Flame,

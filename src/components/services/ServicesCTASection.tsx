@@ -20,7 +20,7 @@ export function ServicesCTASection() {
                     />
                 </div>
                 <p className="text-xl text-primary-foreground/80 mb-10 max-w-2xl mx-auto">
-                    Let's work together to build safe, efficient, and compliant infrastructure.
+                    Let&apos;s work together to build safe, efficient, and compliant infrastructure.
                 </p>
                 <Button
                     asChild

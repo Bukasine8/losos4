@@ -36,22 +36,29 @@ export function ProjectsTeaserSection() {
 
             <div className="container relative z-10">
                 <motion.div
-                    initial={{ opacity: 0, y: 30 }}
+                    initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
                     className="flex flex-col md:flex-row justify-between items-end mb-16 gap-4"
                 >
                     <div>
                         <motion.div
-                            initial={{ opacity: 0, x: -20 }}
+                            initial={{ opacity: 0, x: -50 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
+                            transition={{ duration: 0.6, delay: 0.4 }}
                             className="inline-block px-4 py-2 rounded-full glass border border-secondary/20 mb-4"
                         >
                             <span className="text-sm font-medium gradient-text-accent">Our Work</span>
                         </motion.div>
-                        <div className="mb-4">
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.7, delay: 0.6 }}
+                            className="mb-4"
+                        >
                             <TypewriterEffect
                                 words={[
                                     { text: "Featured" },
@@ -59,16 +66,26 @@ export function ProjectsTeaserSection() {
                                 ]}
                                 className="text-4xl md:text-5xl lg:text-6xl font-bold font-display"
                             />
-                        </div>
-                        <p className="text-lg text-foreground/70 max-w-2xl">
+                        </motion.div>
+                        <motion.p
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.8, delay: 0.8 }}
+                            className="text-lg text-foreground/70 max-w-2xl"
+                        >
                             A glimpse into our portfolio of successful engineering deliveries.
-                        </p>
+                        </motion.p>
                     </div>
                     <Link href="/projects">
                         <motion.button
                             className="px-6 py-3 rounded-full glass border border-secondary/30 hover:border-secondary/60 transition-all duration-300 font-medium"
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6, delay: 1 }}
                         >
                             View Portfolio
                         </motion.button>
