@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import { TypewriterEffect } from "@/components/ui/typewriter-effect";
 import { CountingNumber } from "@/components/ui/CountingNumber";
 import { GlassCard } from "@/components/ui/GlassCard";
-import { FuturisticBackground } from "@/components/ui/FuturisticBackground";
 import { Users, Award, Briefcase, TrendingUp } from "lucide-react";
 
 const stats = [
@@ -60,8 +59,7 @@ export function CompanyOverviewSection() {
     ];
 
     return (
-        <section className="relative py-32 overflow-hidden">
-            <FuturisticBackground variant="gradient" />
+        <section className="relative py-32 overflow-hidden bg-slate-50 dark:bg-slate-950">
 
             <div className="container relative z-10">
                 <div className="flex flex-col lg:flex-row gap-16 items-center">

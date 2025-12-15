@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import { EncryptedText } from "@/components/ui/EncryptedText";
 import { TypewriterEffect } from "@/components/ui/typewriter-effect";
-import { ParticleField } from "@/components/ui/ParticleField";
 
 export function AboutHeroSection() {
     const subtitleWords = [
@@ -18,42 +17,7 @@ export function AboutHeroSection() {
     ];
 
     return (
-        <section className="relative h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden">
-            {/* Particle Background */}
-            <div className="absolute inset-0 z-0">
-                <ParticleField particleCount={60} particleColor="rgba(59, 130, 246, 0.3)" />
-            </div>
-
-            {/* Gradient Orbs */}
-            <div className="absolute inset-0 overflow-hidden">
-                <motion.div
-                    className="absolute top-20 left-20 w-96 h-96 bg-primary/20 rounded-full blur-3xl"
-                    animate={{
-                        x: [0, 100, 0],
-                        y: [0, 50, 0],
-                    }}
-                    transition={{ duration: 20, repeat: Infinity }}
-                />
-                <motion.div
-                    className="absolute bottom-20 right-20 w-96 h-96 bg-secondary/20 rounded-full blur-3xl"
-                    animate={{
-                        x: [0, -100, 0],
-                        y: [0, -50, 0],
-                    }}
-                    transition={{ duration: 25, repeat: Infinity }}
-                />
-            </div>
-
-            {/* Background Image with Overlay */}
-            <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 0.1 }}
-                transition={{ duration: 1 }}
-                className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
-                style={{
-                    backgroundImage: "url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=2531&auto=format&fit=crop')",
-                }}
-            />
+        <section className="relative h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden bg-slate-900">
 
             {/* Content */}
             <div className="container relative z-10 text-center px-4">
