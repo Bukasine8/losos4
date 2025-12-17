@@ -37,7 +37,7 @@ export function Section({
 
     return (
         <section
-            className={cn("relative py-24 md:py-32", bgColors[theme], className)}
+            className={cn("relative py-16 md:py-32", bgColors[theme], className)}
             {...props}
         >
             {hasDivider && divider !== "none" && (

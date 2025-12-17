@@ -35,38 +35,38 @@ export default function Home() {
     return (
         <>
             {/* Hero Section */}
-            <section className="relative h-screen flex items-center justify-center overflow-hidden bg-losos-dark text-white">
+            <section className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden bg-losos-dark text-white">
                 <div className="absolute inset-0 z-0">
                     {/* Placeholder for Particle Background */}
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-losos-blue/20 via-losos-dark to-losos-dark" />
                 </div>
 
                 <div className="container relative z-10 text-center px-4">
-                    <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-8 animate-in fade-in slide-in-from-bottom-8 duration-1000">
+                    <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6 md:mb-8 animate-in fade-in slide-in-from-bottom-8 duration-1000">
                         Precision Engineering <br className="hidden md:block" /> for Critical Infrastructure.
                     </h1>
-                    <p className="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto mb-12 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200">
+                    <p className="text-lg md:text-2xl text-gray-300 max-w-2xl mx-auto mb-10 md:mb-12 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200">
                         Multidisciplinary engineering for large-scale, complex projects.
                         Precise. Disciplined. Trusted.
                     </p>
-                    <div className="flex flex-col md:flex-row gap-6 justify-center animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-300">
-                        <Button size="lg" asChild>
+                    <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-300">
+                        <Button size="lg" asChild className="w-full sm:w-auto">
                             <Link href="/schedule">Schedule a Meeting</Link>
                         </Button>
-                        <Button variant="outline" size="lg" asChild>
+                        <Button variant="outline" size="lg" asChild className="w-full sm:w-auto">
                             <Link href="/projects">View Projects</Link>
                         </Button>
                     </div>
                 </div>
 
                 {/* Diagonal Cut Bottom */}
-                <div className="absolute bottom-0 left-0 right-0 h-24 bg-losos-light" style={{ clipPath: "polygon(0 100%, 100% 0, 100% 100%, 0 100%)" }}></div>
+                <div className="absolute bottom-0 left-0 right-0 h-16 md:h-24 bg-losos-light" style={{ clipPath: "polygon(0 100%, 100% 0, 100% 100%, 0 100%)" }}></div>
             </section>
 
             {/* Services Section */}
-            <Section theme="light" className="py-24" hasDivider divider="slope-right">
+            <Section theme="light" className="py-16 md:py-24" hasDivider divider="slope-right">
                 <div className="container">
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
                         {[
                             { title: "Project Management", desc: "End-to-end planning, coordination, and risk management.", icon: "ClipboardList" },
                             { title: "Mechanical", desc: "HVAC and plant systems optimized for efficiency.", icon: "Cog" },
@@ -88,12 +88,12 @@ export default function Home() {
             {/* Industries Served */}
             <Section theme="dark" hasDivider divider="slope-left">
                 <div className="container">
-                    <h2 className="text-4xl font-bold mb-4 text-center">Industries We Serve</h2>
-                    <p className="text-gray-400 text-center max-w-2xl mx-auto mb-16">
+                    <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">Industries We Serve</h2>
+                    <p className="text-gray-400 text-center max-w-2xl mx-auto mb-12 md:mb-16">
                         Specialized engineering expertise tailored to the unique demands of critical sectors.
                     </p>
 
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
                         {[
                             { name: "Oil & Gas", icon: "Factory" },
                             { name: "Power", icon: "Zap" },
@@ -104,11 +104,11 @@ export default function Home() {
                             { name: "Government", icon: "Landmark" },
                             { name: "Healthcare", icon: "Stethoscope" }
                         ].map((industry) => (
-                            <div key={industry.name} className="flex flex-col items-center justify-center p-8 bg-white/5 border border-white/10 hover:bg-losos-blue/20 hover:border-losos-blue/50 transition-all duration-300 group">
+                            <div key={industry.name} className="flex flex-col items-center justify-center p-6 md:p-8 bg-white/5 border border-white/10 hover:bg-losos-blue/20 hover:border-losos-blue/50 transition-all duration-300 group rounded-lg md:rounded-none">
                                 <span className="mb-4 text-losos-blue group-hover:text-white transition-colors">
                                     <IndustryIcon name={industry.icon} />
                                 </span>
-                                <span className="font-bold text-lg">{industry.name}</span>
+                                <span className="font-bold text-sm md:text-lg text-center">{industry.name}</span>
                             </div>
                         ))}
                     </div>
@@ -118,8 +118,8 @@ export default function Home() {
             {/* Engineering Process */}
             <Section theme="light" hasDivider divider="chevron">
                 <div className="container">
-                    <div className="text-center mb-16">
-                        <h2 className="text-4xl font-bold mb-4 text-losos-dark">Our Engineering Process</h2>
+                    <div className="text-center mb-12 md:mb-16">
+                        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-losos-dark">Our Engineering Process</h2>
                         <p className="text-gray-600">A disciplined approach to delivering excellence.</p>
                     </div>
 
@@ -132,7 +132,7 @@ export default function Home() {
                             { step: "03", title: "Execution", desc: "Rigorous project management and installation." },
                             { step: "04", title: "Support", desc: "Commissioning and lifecycle maintenance." }
                         ].map((phase) => (
-                            <div key={phase.step} className="bg-white p-8 border border-gray-100 shadow-lg relative">
+                            <div key={phase.step} className="bg-white p-6 md:p-8 border border-gray-100 shadow-lg relative rounded-lg md:rounded-none">
                                 <div className="w-12 h-12 bg-losos-blue text-white font-bold flex items-center justify-center rounded-full mb-6 mx-auto md:mx-0 shadow-lg shadow-losos-blue/30">
                                     {phase.step}
                                 </div>
@@ -146,9 +146,9 @@ export default function Home() {
 
             {/* Why Choose Us */}
             <Section theme="blue" hasDivider divider="slope-right">
-                <div className="container grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div className="container grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
                     <div>
-                        <h2 className="text-4xl font-bold mb-8">Why Choose Losos4?</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold mb-8">Why Choose Losos4?</h2>
                         <div className="space-y-8">
                             <div className="flex gap-6">
                                 <div className="w-12 h-12 bg-white/10 flex-shrink-0 flex items-center justify-center rounded-lg">
@@ -179,18 +179,18 @@ export default function Home() {
                             </div>
                         </div>
                     </div>
-                    <div className="relative h-[500px] border-4 border-white/20 p-4">
-                        <div className="w-full h-full bg-losos-dark relative overflow-hidden">
+                    <div className="relative h-[400px] md:h-[500px] border-4 border-white/20 p-2 md:p-4 rounded-lg md:rounded-none">
+                        <div className="w-full h-full bg-losos-dark relative overflow-hidden rounded-sm">
                             <Image
-                                src="/images/Project_Images/Power and Distribution Installation at PPRA HQ Building, Abuja.jpeg"
+                                src="/images/quality_engineering_site.png"
                                 alt="Quality Engineering"
                                 fill
-                                className="object-cover opacity-60"
+                                className="object-cover opacity-80"
                             />
                             <div className="absolute inset-0 flex items-center justify-center">
                                 <div className="text-center">
-                                    <div className="text-6xl font-bold mb-2">100%</div>
-                                    <div className="uppercase tracking-widest text-sm">Client Satisfaction</div>
+                                    <div className="text-5xl md:text-6xl font-bold mb-2 text-white drop-shadow-xl">100%</div>
+                                    <div className="uppercase tracking-widest text-sm text-white font-medium drop-shadow-md">Client Satisfaction</div>
                                 </div>
                             </div>
                         </div>
