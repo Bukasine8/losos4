@@ -26,6 +26,10 @@ export default function ContactPage() {
                                     DURUNMI, ABUJA, Nigeria
                                 </p>
                             </div>
+                            <div>
+                                <h3 className="text-lg font-bold text-losos-blue mb-2">Phone</h3>
+                                <p className="text-2xl"><a href="tel:+2348000000000">+234 800 000 0000</a></p>
+                            </div>
                         </div>
                     </div>
 
