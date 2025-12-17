@@ -36,7 +36,7 @@ export function Footer() {
                     <h3 className="text-lg font-bold mb-6 text-losos-blue">Contact</h3>
                     <ul className="space-y-4 text-gray-400">
                         <li><a href="mailto:losos4consultants@gmail.com" className="hover:text-white transition-colors">losos4consultants@gmail.com</a></li>
-                        <li><a href="tel:+2348000000000" className="hover:text-white transition-colors">+234 800 000 0000</a></li>
+                        <li><a href="tel:+2348163723126" className="hover:text-white transition-colors">+234 816 372 3126</a></li>
                         <li>SUIT DD11, APO SPARKLIGHT PLAZA,<br />OPPOSITE LIVING FAITH CHURCH,<br />DURUNMI, ABUJA, Nigeria</li>
                     </ul>
                 </div>

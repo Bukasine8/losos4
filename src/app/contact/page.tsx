@@ -28,7 +28,7 @@ export default function ContactPage() {
                             </div>
                             <div>
                                 <h3 className="text-lg font-bold text-losos-blue mb-2">Phone</h3>
-                                <p className="text-2xl"><a href="tel:+2348000000000">+234 800 000 0000</a></p>
+                                <p className="text-2xl"><a href="tel:+2348163723126">+234 816 372 3126</a></p>
                             </div>
                         </div>
                     </div>

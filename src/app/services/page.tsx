@@ -2,6 +2,7 @@
 import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
 import Link from "next/link";
+import Image from "next/image";
 import {
     ClipboardList,
     Cog,
@@ -62,12 +63,14 @@ export default function ServicesPage() {
                             ))}
                         </div>
                     </div>
-                    <div className="order-1 lg:order-2 bg-gray-100 h-[400px] rounded-lg relative overflow-hidden group">
-                        <div className="absolute inset-0 bg-losos-dark/5 group-hover:bg-losos-dark/0 transition-colors duration-500" />
-                        {/* Placeholder for PM Image */}
-                        <div className="absolute inset-0 flex items-center justify-center text-gray-400 font-bold tracking-widest uppercase">
-                            Project Management
-                        </div>
+                    <div className="order-1 lg:order-2 h-[400px] rounded-lg relative overflow-hidden group shadow-xl">
+                        <Image
+                            src="/images/Project_Images/PPPRA HQ Building, Abuja..jpeg"
+                            alt="Project Management - PPPRA HQ"
+                            fill
+                            className="object-cover transition-transform duration-700 group-hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-losos-dark/20 group-hover:bg-losos-dark/0 transition-colors duration-500" />
                     </div>
                 </div>
             </Section>
@@ -75,11 +78,14 @@ export default function ServicesPage() {
             {/* Mechanical Engineering */}
             <Section theme="blue" id="mechanical" hasDivider divider="slope-right">
                 <div className="container grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                    <div className="order-1 bg-losos-dark/50 h-[400px] rounded-lg relative overflow-hidden group border border-white/10">
-                        {/* Placeholder for Mechanical Image */}
-                        <div className="absolute inset-0 flex items-center justify-center text-white/50 font-bold tracking-widest uppercase">
-                            Mechanical Systems
-                        </div>
+                    <div className="order-1 h-[400px] rounded-lg relative overflow-hidden group shadow-xl border-4 border-white/10">
+                        <Image
+                            src="/images/Project_Images/1X1250kVA and 385kVA Genset Installation at PPPRA HQ Building, Abuja.jpeg"
+                            alt="Mechanical Engineering - Genset Installation"
+                            fill
+                            className="object-cover transition-transform duration-700 group-hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-losos-dark/20 group-hover:bg-losos-dark/0 transition-colors duration-500" />
                     </div>
                     <div className="order-2">
                         <div className="w-16 h-16 bg-white/10 flex items-center justify-center rounded-lg mb-6 text-white">
@@ -141,12 +147,14 @@ export default function ServicesPage() {
                             ))}
                         </div>
                     </div>
-                    <div className="order-1 lg:order-2 bg-gray-100 h-[400px] rounded-lg relative overflow-hidden group">
-                        <div className="absolute inset-0 bg-losos-dark/5 group-hover:bg-losos-dark/0 transition-colors duration-500" />
-                        {/* Placeholder for Electrical Image */}
-                        <div className="absolute inset-0 flex items-center justify-center text-gray-400 font-bold tracking-widest uppercase">
-                            Electrical Systems
-                        </div>
+                    <div className="order-1 lg:order-2 h-[400px] rounded-lg relative overflow-hidden group shadow-xl">
+                        <Image
+                            src="/images/Project_Images/Power and Distribution Installation at PPRA HQ Building, Abuja.jpeg"
+                            alt="Electrical Engineering - Power Distribution"
+                            fill
+                            className="object-cover transition-transform duration-700 group-hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-losos-dark/20 group-hover:bg-losos-dark/0 transition-colors duration-500" />
                     </div>
                 </div>
             </Section>
@@ -154,11 +162,14 @@ export default function ServicesPage() {
             {/* Fire Engineering */}
             <Section theme="dark" id="fire" hasDivider divider="slope-right">
                 <div className="container grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                    <div className="order-1 bg-white/5 h-[400px] rounded-lg relative overflow-hidden group border border-white/10">
-                        {/* Placeholder for Fire Image */}
-                        <div className="absolute inset-0 flex items-center justify-center text-white/50 font-bold tracking-widest uppercase">
-                            Fire Safety
-                        </div>
+                    <div className="order-1 h-[400px] rounded-lg relative overflow-hidden group shadow-xl border border-white/10">
+                        <Image
+                            src="/images/Project_Images/page_164_img_3.jpeg"
+                            alt="Fire Engineering Systems"
+                            fill
+                            className="object-cover transition-transform duration-700 group-hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-losos-dark/20 group-hover:bg-losos-dark/0 transition-colors duration-500" />
                     </div>
                     <div className="order-2">
                         <div className="w-16 h-16 bg-losos-blue/10 flex items-center justify-center rounded-lg mb-6 text-losos-blue">
@@ -197,7 +208,7 @@ export default function ServicesPage() {
                     <p className="text-xl text-white/80 mb-10">
                         Whether you need a full-scale project management team or specialized engineering design, Losos4 is your trusted partner.
                     </p>
-                    <Button size="lg" variant="secondary" asChild className="text-losos-blue font-bold">
+                    <Button size="lg" className="bg-white text-losos-blue hover:bg-gray-100 font-bold border-none" asChild>
                         <Link href="/contact">Get in Touch <ArrowRight className="ml-2 w-5 h-5" /></Link>
                     </Button>
                 </div>
