@@ -158,7 +158,7 @@ export function Chatbot() {
                 <form onSubmit={handleSubmit} className="p-4 bg-white border-t border-gray-100 shrink-0">
                     <div className="flex gap-2">
                         <input
-                            value={input}
+                            value={input ?? ""}
                             onChange={handleInputChange}
                             placeholder="Type a message..."
                             className="flex-1 bg-gray-100 border-0 rounded-full px-4 text-sm focus:ring-2 focus:ring-losos-blue focus:outline-none"
