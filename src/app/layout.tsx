@@ -1,34 +1,45 @@
-
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Manrope } from "next/font/google";
 import "./globals.css";
+import { Header } from "@/components/layout/Header";
+import { Footer } from "@/components/layout/Footer";
 
-// Google Analytics, ChatWidget imports
-import { GoogleAnalytics } from "@next/third-parties/google";
-import { ChatWidget } from "@/components/chat/ChatWidget";
+const inter = Inter({
+    variable: "--font-inter",
+    subsets: ["latin"],
+    display: "swap",
+});
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
+const manrope = Manrope({
+    variable: "--font-manrope",
+    subsets: ["latin"],
+    display: "swap",
+});
 
 export const metadata: Metadata = {
-  title: "Losos4 Engineering Consulting",
-  description: "Engineering You Can Trust. Results You Can Measure.",
+    title: "Losos4 Consultants",
+    description: "Engineering You Can Trust. Results You Can Measure.",
+    icons: {
+        icon: "/images/Logo.gif",
+    },
 };
 
 export default function RootLayout({
-  children,
+    children,
 }: Readonly<{
-  children: React.ReactNode;
+    children: React.ReactNode;
 }>) {
-  return (
-    <html lang="en" suppressHydrationWarning>
-      <body
-        suppressHydrationWarning
-        className={`${inter.variable} font-sans antialiased min-h-screen bg-background text-foreground`}
-      >
-        {children}
-        <ChatWidget />
-      </body>
-      <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID || ""} />
-    </html>
-  );
+    return (
+        <html lang="en">
+            <body
+                className={`${inter.variable} ${manrope.variable} antialiased overflow-x-hidden flex flex-col min-h-screen`}
+            >
+                <Header />
+                <main className="flex-grow">
+                    {children}
+                </main>
+                <Footer />
+            </body>
+        </html>
+    );
 }
