@@ -22,39 +22,35 @@ function Calendar({
             classNames={{
                 months: "flex flex-col sm:flex-row space-y-4 sm:space-x-4 sm:space-y-0",
                 month: "space-y-4",
-                caption: "flex justify-center pt-1 relative items-center",
-                caption_label: "text-sm font-medium",
-                nav: "space-x-1 flex items-center",
+                caption: "flex justify-between pt-1 relative items-center mb-8",
+                caption_label: "text-[#111318] dark:text-white text-lg font-bold leading-tight",
+                nav: "flex items-center gap-2",
                 nav_button: cn(
                     buttonVariants({ variant: "outline" }),
-                    "h-7 w-7 bg-transparent p-0 opacity-50 hover:opacity-100 rounded-none"
+                    "flex size-9 items-center justify-center rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-[#111318] dark:text-gray-200 transition-colors"
                 ),
-                nav_button_previous: "absolute left-1",
-                nav_button_next: "absolute right-1",
-                table: "w-full border-collapse space-y-1",
-                head_row: "flex",
-                head_cell:
-                    "text-stone-500 rounded-none w-9 font-normal text-[0.8rem] dark:text-stone-400",
-                row: "flex w-full mt-2",
-                cell: "h-9 w-9 text-center text-sm p-0 relative [&:has([aria-selected].day-range-end)]:rounded-none [&:has([aria-selected].day-outside)]:bg-stone-100/50 [&:has([aria-selected])]:bg-stone-100 first:[&:has([aria-selected])]:rounded-none last:[&:has([aria-selected])]:rounded-none focus-within:relative focus-within:z-20 dark:[&:has([aria-selected].day-outside)]:bg-stone-800/50 dark:[&:has([aria-selected])]:bg-stone-800",
+                nav_button_previous: "",
+                nav_button_next: "",
+                table: "w-full border-collapse",
+                head_row: "grid grid-cols-7 mb-2",
+                head_cell: "flex items-center justify-center h-10 text-xs font-bold text-gray-400 uppercase tracking-wider",
+                row: "grid grid-cols-7 gap-1 md:gap-2",
+                cell: "h-10 md:h-12 w-full",
                 day: cn(
                     buttonVariants({ variant: "ghost" }),
-                    "h-9 w-9 p-0 font-normal aria-selected:opacity-100 rounded-none"
+                    "h-10 md:h-12 w-full rounded-lg text-sm font-medium text-[#111318] dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors flex items-center justify-center"
                 ),
-                day_range_end: "day-range-end",
                 day_selected:
-                    "bg-losos-blue text-stone-50 hover:bg-losos-blue hover:text-stone-50 focus:bg-losos-blue focus:text-stone-50",
-                day_today: "bg-stone-100 text-stone-900 dark:bg-stone-800 dark:text-stone-50",
-                day_outside:
-                    "day-outside text-stone-500 opacity-50 aria-selected:bg-stone-100/50 aria-selected:text-stone-500 aria-selected:opacity-30 dark:text-stone-400 dark:aria-selected:bg-stone-800/50 dark:aria-selected:text-stone-400",
-                day_disabled: "text-stone-500 opacity-50 dark:text-stone-400",
-                day_range_middle:
-                    "aria-selected:bg-stone-100 aria-selected:text-stone-900 dark:aria-selected:bg-stone-800 dark:aria-selected:text-stone-50",
+                    "bg-primary text-white font-bold shadow-md shadow-blue-500/30 hover:bg-primary hover:text-white focus:bg-primary focus:text-white relative group",
+                day_today: "font-bold text-primary dark:text-primary border border-primary/20 bg-primary/5",
+                day_outside: "day-outside text-gray-400 opacity-50",
+                day_disabled: "text-gray-400 opacity-50",
                 day_hidden: "invisible",
                 ...classNames,
             }}
             components={{
-                Dropdown: () => <ChevronLeft className="h-4 w-4" />,
+                IconLeft: () => <span className="material-symbols-outlined text-[20px]">chevron_left</span>,
+                IconRight: () => <span className="material-symbols-outlined text-[20px]">chevron_right</span>,
             }}
             {...props}
         />

@@ -85,20 +85,15 @@ export default function SchedulePage() {
     }
 
     return (
-        <div className="pt-24 min-h-screen bg-losos-light">
-            {/* Hero / Header for Scheduler */}
-            <Section theme="dark" className="py-20">
-                <div className="text-center max-w-3xl mx-auto">
-                    <h1 className="text-4xl md:text-5xl font-bold mb-4">Schedule a Meeting</h1>
-                    <p className="text-xl text-gray-300">
-                        Plan a focused discussion with our engineering team. Choose your preference below.
-                    </p>
+        <div className="pt-24 min-h-screen bg-losos-light flex flex-col items-center justify-center p-4 md:p-8">
+            <div className="w-full max-w-[1000px] flex flex-col gap-8">
+                {/* Page Heading Component */}
+                <div className="flex flex-col gap-2 text-center md:text-left animate-fade-in">
+                    <h1 className="text-[#111318] dark:text-white tracking-tight text-3xl md:text-4xl font-bold leading-tight">Select a Date</h1>
+                    <p className="text-[#616f89] dark:text-gray-400 text-base font-normal leading-normal">Choose a day and time to schedule your meeting.</p>
                 </div>
-            </Section>
-
-            <div className="container max-w-4xl -mt-10 relative z-10 mb-24">
-                {/* Progress Indicator */}
-                <div className="bg-white p-8 shadow-sm border-b border-gray-100 flex justify-between items-center mb-8">
+                {/* Content */}
+                <div className="min-h-[500px]">
                     {[1, 2, 3, 4].map((s) => (
                         <div key={s} className="flex items-center gap-2">
                             <div className={`w-8 h-8 flex items-center justify-center font-bold text-sm border ${step === s ? "bg-losos-blue text-white border-losos-blue" :
@@ -146,19 +141,14 @@ export default function SchedulePage() {
                     )}
 
                     {step === 3 && (
-                        <div className="space-y-8">
-                            <h2 className="text-2xl font-bold border-l-4 border-losos-blue pl-4">Select Date & Time</h2>
-                            <DateTimeSelection
-                                date={formData.date}
-                                timeSlot={formData.timeSlot}
-                                onDateSelect={(d) => updateFormData({ date: d, timeSlot: null })} // Reset time on date change
-                                onTimeSelect={(t) => updateFormData({ timeSlot: t })}
-                            />
-                            <div className="flex justify-between mt-8">
-                                <Button variant="outline" onClick={prevStep}>Back</Button>
-                                <Button onClick={nextStep} disabled={!isStep3Valid}>Next Step</Button>
-                            </div>
-                        </div>
+                        <DateTimeSelection
+                            date={formData.date}
+                            timeSlot={formData.timeSlot}
+                            onDateSelect={(d) => updateFormData({ date: d, timeSlot: null })} // Reset time on date change
+                            onTimeSelect={(t) => updateFormData({ timeSlot: t })}
+                            onConfirm={nextStep}
+                            isStepValid={isStep3Valid}
+                        />
                     )}
 
                     {step === 4 && (
