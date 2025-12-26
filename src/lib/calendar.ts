@@ -9,8 +9,32 @@ export function createGoogleCalendarUrl(meetingDetails: {
         return null;
     }
 
+    // Parse time string "09:00 AM" or "09:00"
     const [startTime] = meetingDetails.timeSlot.split(" - ");
-    const [hours, minutes] = startTime.split(":").map(Number);
+
+    let hours = 0;
+    let minutes = 0;
+
+    // Check if it's 12-hour format with AM/PM
+    const timeMatch = startTime.match(/(\d+):(\d+)\s*(AM|PM)?/i);
+
+    if (timeMatch) {
+        hours = parseInt(timeMatch[1], 10);
+        minutes = parseInt(timeMatch[2], 10);
+        const modifier = timeMatch[3]?.toUpperCase(); // AM or PM
+
+        if (modifier === "PM" && hours < 12) {
+            hours += 12;
+        }
+        if (modifier === "AM" && hours === 12) {
+            hours = 0;
+        }
+    } else {
+        // Fallback for simple "HH:MM" parsable by split
+        const parts = startTime.split(":").map(Number);
+        hours = parts[0];
+        minutes = parts[1];
+    }
 
     const startDateTime = new Date(meetingDetails.date);
     startDateTime.setHours(hours, minutes, 0, 0);
