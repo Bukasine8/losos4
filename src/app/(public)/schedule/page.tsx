@@ -10,7 +10,8 @@ import { ReviewMeeting } from "@/components/schedule/ReviewMeeting";
 import { CheckCircle2 } from "lucide-react";
 import Link from "next/link";
 import { createGoogleCalendarUrl } from "@/lib/calendar";
-// Removed: import PrimeInlineCalendar from "@/components/ui/PrimeInlineCalendar";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 export default function SchedulePage() {
     const [step, setStep] = useState(1);
@@ -49,6 +50,19 @@ export default function SchedulePage() {
     const isStep2Valid = formData.name && formData.email && formData.projectType && formData.description; // Basic validation
     const isStep3Valid = !!formData.date && !!formData.timeSlot;
 
+    const router = useRouter();
+    const [showCalendarPopup, setShowCalendarPopup] = useState(true);
+
+    // Auto-redirect after 8 seconds
+    useEffect(() => {
+        if (isSuccess) {
+            const timer = setTimeout(() => {
+                router.push("/");
+            }, 8000); // 8 seconds to give enough time to read and click popup
+            return () => clearTimeout(timer);
+        }
+    }, [isSuccess, router]);
+
     if (isSuccess) {
         const calendarUrl = createGoogleCalendarUrl({
             date: formData.date!,
@@ -59,7 +73,8 @@ export default function SchedulePage() {
         });
 
         return (
-            <div className="pt-24 min-h-screen bg-losos-light flex items-center justify-center">
+            <div className="pt-24 min-h-screen bg-losos-light flex items-center justify-center relative">
+                {/* Background Success Page */}
                 <div className="bg-white p-16 max-w-2xl text-center shadow-2xl border-t-8 border-losos-blue animate-in fade-in zoom-in duration-500">
                     <div className="flex justify-center mb-8">
                         <CheckCircle2 className="w-24 h-24 text-green-500" />
@@ -68,19 +83,37 @@ export default function SchedulePage() {
                     <p className="text-xl text-gray-600 mb-8">
                         Your consultation has been confirmed. A calendar invitation has been sent to <strong>{formData.email}</strong>.
                     </p>
-                    <div className="flex flex-col md:flex-row gap-4 justify-center">
-                        <Button asChild>
-                            <Link href="/">Return Home</Link>
-                        </Button>
-                        {calendarUrl && (
-                            <Button variant="outline" asChild>
-                                <Link href={calendarUrl} target="_blank" rel="noopener noreferrer">
-                                    Add to Google Calendar
-                                </Link>
-                            </Button>
-                        )}
-                    </div>
+                    <p className="text-sm text-gray-400">
+                        Redirecting to homepage in a few seconds...
+                    </p>
                 </div>
+
+                {/* Google Calendar Popup Modal */}
+                {showCalendarPopup && calendarUrl && (
+                    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm animate-in fade-in duration-300">
+                        <div className="bg-white p-8 rounded-xl shadow-2xl max-w-md w-full mx-4 border border-white/20 relative animate-in zoom-in-95 duration-300">
+                            <h3 className="text-2xl font-bold text-center mb-4">Add to Calendar?</h3>
+                            <p className="text-gray-600 text-center mb-8">
+                                Don't miss your appointment! Would you like to add this meeting to your Google Calendar?
+                            </p>
+
+                            <div className="flex flex-col gap-3">
+                                <Button size="lg" className="w-full bg-losos-blue hover:bg-losos-blue/90" asChild>
+                                    <Link href={calendarUrl} target="_blank" rel="noopener noreferrer">
+                                        📅 Yes, Add directly to Google Calendar
+                                    </Link>
+                                </Button>
+                                <Button
+                                    variant="ghost"
+                                    className="w-full text-gray-500 hover:text-gray-700 hover:bg-gray-100"
+                                    onClick={() => setShowCalendarPopup(false)}
+                                >
+                                    No, I'll remember it
+                                </Button>
+                            </div>
+                        </div>
+                    </div>
+                )}
             </div>
         );
     }
@@ -103,7 +136,7 @@ export default function SchedulePage() {
                     {[1, 2, 3, 4].map((s) => (
                         <div key={s} className="flex items-center gap-2">
                             <div className={`w-8 h-8 flex items-center justify-center font-bold text-sm border ${step === s ? "bg-losos-blue text-white border-losos-blue" :
-                                    step > s ? "bg-green-500 text-white border-green-500" : "text-gray-400 border-gray-200"
+                                step > s ? "bg-green-500 text-white border-green-500" : "text-gray-400 border-gray-200"
                                 }`}>
                                 {step > s ? "✓" : s}
                             </div>

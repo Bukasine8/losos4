@@ -27,7 +27,7 @@ export function ContactFAB() {
         {
             icon: <Mail className="w-5 h-5" />,
             label: "Email",
-            href: "mailto:losos4consultantsltd@gmail.com",
+            href: "mailto:losos4consultants@gmail.com",
             color: "bg-red-500",
             delay: "delay-300"
         }

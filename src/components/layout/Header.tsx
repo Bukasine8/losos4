@@ -68,7 +68,9 @@ export function Header() {
                                 href={item.href}
                                 className={cn(
                                     "text-sm font-medium uppercase tracking-widest hover:text-losos-blue transition-colors",
-                                    pathname === item.href ? "text-losos-blue" : "text-gray-300"
+                                    pathname === item.href || (item.href !== '/' && pathname?.startsWith(item.href))
+                                        ? "text-losos-blue font-bold after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-full after:h-0.5 after:bg-losos-blue after:scale-x-100 after:transition-transform"
+                                        : "text-gray-300 after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-full after:h-0.5 after:bg-losos-blue after:scale-x-0 group-hover:after:scale-x-100 after:transition-transform"
                                 )}
                             >
                                 {item.name}

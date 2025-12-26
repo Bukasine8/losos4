@@ -78,7 +78,7 @@ export function MobileDrawer({ isOpen, onClose, navItems }: MobileDrawerProps) {
                     <nav className="py-2 px-3 mt-2">
                         <ul className="space-y-1">
                             {navItems.map((item) => {
-                                const isActive = pathname === item.href;
+                                const isActive = pathname === item.href || (item.href !== '/' && pathname?.startsWith(item.href));
                                 return (
                                     <li key={item.name}>
                                         <Link
