@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next'
-import { createClient } from '@/lib/supabase/server'
+import { getStaticClient } from '@/lib/supabase/static'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const baseUrl = 'https://losos4.com' // Replace with actual domain if different
@@ -13,6 +13,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         '/blog',
         '/contact',
         '/schedule',
+        '/gallery',
     ].map((route) => ({
         url: `${baseUrl}${route}`,
         lastModified: new Date(),
@@ -24,7 +25,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     let blogRoutes: MetadataRoute.Sitemap = []
 
     try {
-        const supabase = await createClient()
+        const supabase = getStaticClient()
         const { data: posts } = await supabase
             .from('posts')
             .select('slug, updated_at')
